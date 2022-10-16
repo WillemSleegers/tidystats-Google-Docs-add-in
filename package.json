@@ -1,0 +1,31 @@
+{
+  "name": "tidystats-google-docs-add-in",
+  "version": "1.0.0",
+  "description": "A tidystats add-in for Google Docs.",
+  "main": "index.js",
+  "scripts": {
+    "login": "clasp login",
+    "logout": "clasp logout",
+    "create": "clasp create --title 'tidystats add-in' --rootDir gas",
+    "pull": "clasp pull",
+    "push": "clasp push",
+    "start": "clasp push --watch",
+    "open": "clasp open",
+    "dev": "parcel src/*/*.html --dist-dir gas",
+    "build": "parcel build src/*/*.html --dist-dir gas"
+  },
+  "author": "Willem Sleegers",
+  "license": "ISC",
+  "devDependencies": {
+    "@google/clasp": "^2.4.2",
+    "@types/google-apps-script": "^1.0.55",
+    "@types/react": "^18.0.21",
+    "@types/react-dom": "^18.0.6",
+    "parcel": "^2.7.0",
+    "process": "^0.11.10"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}
