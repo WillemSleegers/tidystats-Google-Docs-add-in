@@ -69,7 +69,7 @@
     </html>
     ```
 
-2. Add the following CSS to the header: `<link rel="stylesheet" href="https://ssl.gstatic.com/docs/script/css/add-ons1.css">`
+2. Add the following CSS to the header to have the style match that of Google: `<link rel="stylesheet" href="https://ssl.gstatic.com/docs/script/css/add-ons1.css">`
 3. Add React components, starting with the following template:
 
     ```js
@@ -81,6 +81,7 @@
 
     root.render(<App />)
     ```
+
 4. Run `npm run watch` to begin pushing changes to Google
 5. Run `npm run dev` to begin development. `parcel` will keep everything up to date in the `gas` folder, which will automatically be pushed to Google
 6. Run `npm run build` to create the final build version

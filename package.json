@@ -9,7 +9,7 @@
     "create": "clasp create --title 'tidystats add-in' --rootDir gas",
     "pull": "clasp pull",
     "push": "clasp push",
-    "start": "clasp push --watch",
+    "watch": "clasp push --watch",
     "open": "clasp open",
     "dev": "parcel src/*/*.html --dist-dir gas",
     "build": "parcel build src/*/*.html --dist-dir gas"
