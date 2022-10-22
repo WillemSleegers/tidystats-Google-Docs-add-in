@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { Tidystats } from "../classes/Tidystats"
-import { Logo } from "./Logo"
+import { Header } from "./Header"
 import { Upload } from "./Upload"
 import { Analyses } from "./Analyses"
 
@@ -9,7 +9,7 @@ export const Sidebar = () => {
 
   return (
     <div className="sidebar">
-      <Logo />
+      <Header />
       <Upload setTidystats={setTidystats} />
       {tidystats && <Analyses data={tidystats.analyses} />}
     </div>

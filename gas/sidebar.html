@@ -5,8 +5,27 @@
     <meta charset="UTF-8">
     <title>tidystats</title>
     <link rel="stylesheet" href="https://ssl.gstatic.com/docs/script/css/add-ons1.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0">
-    <style>body {
+    <style>:root {
+  --spacer-1: 4px;
+  --spacer-2: 8px;
+  --spacer-3: 12px;
+  --spacer-4: 16px;
+  --spacer-5: 20px;
+  --spacer-6: 24px;
+  --spacer-7: 28px;
+  --spacer-8: 32px;
+  --spacer-23: 92px;
+  --gap-1: var(--spacer-1);
+  --gap-2: var(--spacer-2);
+  --gap-3: var(--spacer-3);
+  --gray: #f3f2f1;
+  --dark-gray: #5f6368;
+  --blue: #3079ed;
+  --gray-hover: #0000000d;
+  --height-1: var(--spacer-8);
+}
+
+body {
   margin: 0;
 }
 
@@ -14,53 +33,137 @@
   font-weight: bold;
 }
 
-.row {
-  flex-direction: row;
-  align-items: center;
-  padding: .25rem;
+.normal {
+  font-weight: normal;
+}
+
+.w-23 {
+  width: var(--spacer-23);
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.h-1 {
+  height: var(--spacer-8);
+}
+
+.min-h-1 {
+  min-height: var(--spacer-8);
+}
+
+.m-1 {
+  margin: var(--spacer-3);
+}
+
+.mb-1 {
+  margin-bottom: var(--spacer-3) !important;
+}
+
+.ms-1 {
+  margin-left: var(--spacer-1) !important;
+}
+
+.ms-2 {
+  margin-left: var(--spacer-2) !important;
+}
+
+.ms-3 {
+  margin-left: var(--spacer-3) !important;
+}
+
+.ms-4 {
+  margin-left: var(--spacer-4) !important;
+}
+
+.ms-5 {
+  margin-left: var(--spacer-5) !important;
+}
+
+.ms-6 {
+  margin-left: var(--spacer-6) !important;
+}
+
+.ms-7 {
+  margin-left: var(--spacer-7) !important;
+}
+
+.ms-8 {
+  margin-left: var(--spacer-8) !important;
+}
+
+.m-n1 {
+  margin: calc(-1 * var(--spacer-3));
+}
+
+.p-1 {
+  padding: var(--spacer-3);
+}
+
+.display-none {
+  display: none;
+}
+
+.flex {
   display: flex;
 }
 
-.row-name {
-  width: 90px;
-}
-
-.row-identifier {
-  background-color: #f3f2f1;
-}
-
-.row-value {
-  margin-left: .25rem;
-}
-
-.collapsible {
-  margin-left: .5rem;
-}
-
-.chevron {
-  cursor: pointer;
-}
-
-.chevron:hover {
-  background-color: #f3f2f1cf;
-  text-decoration: none;
-}
-
-.logo {
-  background: #f3f2f1;
+.align-items {
   align-items: center;
-  gap: .5rem;
-  margin: -12px -12px 12px;
-  padding: 12px;
-  display: flex;
 }
 
-.logo svg {
-  width: 40px;
+.justify-content {
+  justify-content: center;
 }
 
-.logo h1 {
-  font-size: 1.5rem;
+.gap-1 {
+  gap: var(--gap-1);
+}
+
+.gap-2 {
+  gap: var(--gap-2);
+}
+
+.gap-3 {
+  gap: var(--gap-3);
+}
+
+.shrink-0 {
+  flex-shrink: 0;
+}
+
+.grow-1 {
+  flex-grow: 1;
+}
+
+.bg-gray {
+  background: var(--gray);
+}
+
+.hover-gray {
+  background: var(--gray-hover);
+}
+
+.fill-blue {
+  fill: var(--blue);
+}
+
+.fill-dark-gray {
+  fill: var(--dark-gray);
+}
+
+.border-bottom {
+  border-bottom: solid 1px var(--gray);
+}
+
+input[type="checkbox"] {
+  margin: 0;
+}
+
+.button-size-1 {
+  width: var(--height-1);
+  height: var(--height-1);
 }
 
 
@@ -2575,14 +2678,14 @@ process.umask = function() {
     return 0;
 };
 
-},{}],"cI4X8":[function(require,module,exports) {
+},{}],"cRGSm":[function(require,module,exports) {
 "use strict";
 var global = arguments[3];
 var HMR_HOST = null;
 var HMR_PORT = null;
 var HMR_SECURE = false;
 var HMR_ENV_HASH = "d6ea1d42532a7575";
-module.bundle.HMR_BUNDLE_ID = "ffc7b0c847d25d8a";
+module.bundle.HMR_BUNDLE_ID = "f34477f2f9fadc17";
 /* global HMR_HOST, HMR_PORT, HMR_ENV_HASH, HMR_SECURE, chrome, browser, globalThis, __parcel__import__, __parcel__importScripts__, ServiceWorkerGlobalScope */ /*::
 import type {
   HMRAsset,
@@ -2964,7 +3067,7 @@ function hmrAcceptRun(bundle, id) {
     acceptedAssets[id] = true;
 }
 
-},{}],"7Axpv":[function(require,module,exports) {
+},{}],"aryw8":[function(require,module,exports) {
 var _sidebarTsx = require("./sidebar.tsx");
 
 },{"./sidebar.tsx":"19Abh"}],"19Abh":[function(require,module,exports) {
@@ -27155,7 +27258,7 @@ parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "Sidebar", ()=>Sidebar);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
-var _logo = require("./Logo");
+var _header = require("./Header");
 var _upload = require("./Upload");
 var _analyses = require("./Analyses");
 var _s = $RefreshSig$();
@@ -27165,7 +27268,7 @@ const Sidebar = ()=>{
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         className: "sidebar",
         children: [
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _logo.Logo), {}, void 0, false, {
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _header.Header), {}, void 0, false, {
                 fileName: "src/components/Sidebar.tsx",
                 lineNumber: 12,
                 columnNumber: 7
@@ -27201,310 +27304,7 @@ $RefreshReg$(_c, "Sidebar");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","./Logo":"ice3L","./Upload":"kDXzA","./Analyses":"9hsWd","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"ice3L":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$c937 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
-var prevRefreshReg = window.$RefreshReg$;
-var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$c937.prelude(module);
-
-try {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "Logo", ()=>Logo);
-var _jsxDevRuntime = require("react/jsx-dev-runtime");
-const Logo = ()=>{
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        className: "logo",
-        children: [
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("svg", {
-                width: "50px",
-                height: "50px",
-                viewBox: "0 0 224 224",
-                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("g", {
-                    id: "Icon.",
-                    children: [
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("path", {
-                            id: "Path",
-                            d: "M219 119.003 L219 149.003 C219 154.003 219 154.003 214 157.003 L119 214.003 C114 217.003 113 217.003 112 217.003 111 217.003 110 217.003 105 214.003 L10 157.003 C5 154.003 5 154.003 5 149.003 L5 119.003 C5 124.003 5 124.003 10 127.003 L105 184.003 C110 187.003 111 187.003 112 187.003 113 187.003 114 187.003 119 184.003 L214 127.003 C219 124.003 219 124.003 219 119.003 Z",
-                            fill: "#e59215",
-                            fillOpacity: "1",
-                            stroke: "none"
-                        }, void 0, false, {
-                            fileName: "src/components/Logo.tsx",
-                            lineNumber: 6,
-                            columnNumber: 11
-                        }, undefined),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("path", {
-                            id: "Path-1",
-                            d: "M219 74.003 L219 108.003 C219 113.003 219 113.003 214 116.003 L119 173.003 C114 176.003 113 176.003 112 176.003 111 176.003 110 176.003 105 173.003 L10 116.003 C5 113.003 5 113.003 5 108.003 L5 74.003 C5 75.003 5 79.003 10 82.003 L105 139.003 C110 142.003 111 142.003 112 142.003 113 142.003 114 142.003 119 139.003 L214 82.003 C219 79.003 219 75.003 219 74.003 Z",
-                            fill: "#26587b",
-                            fillOpacity: "1",
-                            stroke: "none"
-                        }, void 0, false, {
-                            fileName: "src/components/Logo.tsx",
-                            lineNumber: 13,
-                            columnNumber: 11
-                        }, undefined),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("path", {
-                            id: "Path-2",
-                            d: "M219 74.003 C219 73.003 219 108.003 219 108.003 219 113.003 219 113.003 214 116.003 L119 173.003 C114 176.003 113 176.003 112 176.003 L112 142.003 C113 142.003 114 142.003 119 139.003 L214 82.003 C219 79.003 219 75.003 219 74.003 Z",
-                            fill: "#1a415a",
-                            fillOpacity: "1",
-                            stroke: "none"
-                        }, void 0, false, {
-                            fileName: "src/components/Logo.tsx",
-                            lineNumber: 20,
-                            columnNumber: 11
-                        }, undefined),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("path", {
-                            id: "Path-3",
-                            d: "M10 66.003 L105 9.003 C110 6.003 111.013 5.982 112 6.003 113.013 6.024 114 6.003 119 9.003 L214 66.003 C219 69.003 219 74.003 219 74.003 219 74.003 219 79.003 214 82.003 L119 139.003 C114 142.003 113 142.003 112 142.003 111 142.003 110 142.003 105 139.003 L10 82.003 C5 79.003 5 75.003 5 74.003 5 73.003 5 69.003 10 66.003 Z M42 74.003 L112 116.003 182 74.003 112 32.003 Z",
-                            fill: "#5b9bba",
-                            fillOpacity: "1",
-                            stroke: "none"
-                        }, void 0, false, {
-                            fileName: "src/components/Logo.tsx",
-                            lineNumber: 27,
-                            columnNumber: 11
-                        }, undefined),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("path", {
-                            id: "Path-4",
-                            d: "M112 6.003 C113 6.003 114 6.003 119 9.003 L214 66.003 C219 69.003 219 73.003 219 74.003 219 75.003 219 79.003 214 82.003 L119 139.003 C114 142.003 113 142.003 112 142.003 L112 116.003 182 74.003 112 32.003 Z",
-                            fill: "#38728d",
-                            fillOpacity: "1",
-                            stroke: "none"
-                        }, void 0, false, {
-                            fileName: "src/components/Logo.tsx",
-                            lineNumber: 34,
-                            columnNumber: 11
-                        }, undefined),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("path", {
-                            id: "Path-5",
-                            d: "M97 101.003 L107 107 129 94 119 88 Z",
-                            fill: "#e59215",
-                            fillOpacity: "1",
-                            stroke: "#e59215",
-                            strokeWidth: "1",
-                            strokeOpacity: "1",
-                            strokeLinejoin: "round"
-                        }, void 0, false, {
-                            fileName: "src/components/Logo.tsx",
-                            lineNumber: 41,
-                            columnNumber: 11
-                        }, undefined),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("path", {
-                            id: "Path-6",
-                            d: "M147 59 L87 95 77 89.003 137 53 Z",
-                            fill: "#e59215",
-                            fillOpacity: "1",
-                            stroke: "#e59215",
-                            strokeWidth: "1",
-                            strokeOpacity: "1",
-                            strokeLinejoin: "round"
-                        }, void 0, false, {
-                            fileName: "src/components/Logo.tsx",
-                            lineNumber: 51,
-                            columnNumber: 11
-                        }, undefined),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("path", {
-                            id: "Path-7",
-                            d: "M107 59 L67 83 57 77 97 53 Z",
-                            fill: "#e59215",
-                            fillOpacity: "1",
-                            stroke: "#e59215",
-                            strokeWidth: "1",
-                            strokeOpacity: "1",
-                            strokeLinejoin: "round"
-                        }, void 0, false, {
-                            fileName: "src/components/Logo.tsx",
-                            lineNumber: 61,
-                            columnNumber: 11
-                        }, undefined)
-                    ]
-                }, void 0, true, {
-                    fileName: "src/components/Logo.tsx",
-                    lineNumber: 5,
-                    columnNumber: 9
-                }, undefined)
-            }, void 0, false, {
-                fileName: "src/components/Logo.tsx",
-                lineNumber: 4,
-                columnNumber: 7
-            }, undefined),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
-                children: "tidystats"
-            }, void 0, false, {
-                fileName: "src/components/Logo.tsx",
-                lineNumber: 73,
-                columnNumber: 7
-            }, undefined)
-        ]
-    }, void 0, true, {
-        fileName: "src/components/Logo.tsx",
-        lineNumber: 3,
-        columnNumber: 5
-    }, undefined);
-};
-_c = Logo;
-var _c;
-$RefreshReg$(_c, "Logo");
-
-  $parcel$ReactRefreshHelpers$c937.postlude(module);
-} finally {
-  window.$RefreshReg$ = prevRefreshReg;
-  window.$RefreshSig$ = prevRefreshSig;
-}
-},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"gkKU3":[function(require,module,exports) {
-exports.interopDefault = function(a) {
-    return a && a.__esModule ? a : {
-        default: a
-    };
-};
-exports.defineInteropFlag = function(a) {
-    Object.defineProperty(a, "__esModule", {
-        value: true
-    });
-};
-exports.exportAll = function(source, dest) {
-    Object.keys(source).forEach(function(key) {
-        if (key === "default" || key === "__esModule" || dest.hasOwnProperty(key)) return;
-        Object.defineProperty(dest, key, {
-            enumerable: true,
-            get: function() {
-                return source[key];
-            }
-        });
-    });
-    return dest;
-};
-exports.export = function(dest, destName, get) {
-    Object.defineProperty(dest, destName, {
-        enumerable: true,
-        get: get
-    });
-};
-
-},{}],"km3Ru":[function(require,module,exports) {
-"use strict";
-var Refresh = require("react-refresh/runtime");
-function debounce(func, delay) {
-    var args;
-    var timeout = undefined;
-    return function(args) {
-        clearTimeout(timeout);
-        timeout = setTimeout(function() {
-            timeout = undefined;
-            func.call(null, args);
-        }, delay);
-    };
-}
-var enqueueUpdate = debounce(function() {
-    Refresh.performReactRefresh();
-}, 30); // Everthing below is either adapted or copied from
-// https://github.com/facebook/metro/blob/61de16bd1edd7e738dd0311c89555a644023ab2d/packages/metro/src/lib/polyfills/require.js
-// MIT License - Copyright (c) Facebook, Inc. and its affiliates.
-module.exports.prelude = function(module1) {
-    window.$RefreshReg$ = function(type, id) {
-        Refresh.register(type, module1.id + " " + id);
-    };
-    window.$RefreshSig$ = Refresh.createSignatureFunctionForTransform;
-};
-module.exports.postlude = function(module1) {
-    if (isReactRefreshBoundary(module1.exports)) {
-        registerExportsForReactRefresh(module1);
-        if (module1.hot) {
-            module1.hot.dispose(function(data) {
-                if (Refresh.hasUnrecoverableErrors()) window.location.reload();
-                data.prevExports = module1.exports;
-            });
-            module1.hot.accept(function(getParents) {
-                var prevExports = module1.hot.data.prevExports;
-                var nextExports = module1.exports; // Since we just executed the code for it, it's possible
-                // that the new exports make it ineligible for being a boundary.
-                var isNoLongerABoundary = !isReactRefreshBoundary(nextExports); // It can also become ineligible if its exports are incompatible
-                // with the previous exports.
-                // For example, if you add/remove/change exports, we'll want
-                // to re-execute the importing modules, and force those components
-                // to re-render. Similarly, if you convert a class component
-                // to a function, we want to invalidate the boundary.
-                var didInvalidate = shouldInvalidateReactRefreshBoundary(prevExports, nextExports);
-                if (isNoLongerABoundary || didInvalidate) {
-                    // We'll be conservative. The only case in which we won't do a full
-                    // reload is if all parent modules are also refresh boundaries.
-                    // In that case we'll add them to the current queue.
-                    var parents = getParents();
-                    if (parents.length === 0) {
-                        // Looks like we bubbled to the root. Can't recover from that.
-                        window.location.reload();
-                        return;
-                    }
-                    return parents;
-                }
-                enqueueUpdate();
-            });
-        }
-    }
-};
-function isReactRefreshBoundary(exports) {
-    if (Refresh.isLikelyComponentType(exports)) return true;
-    if (exports == null || typeof exports !== "object") // Exit if we can't iterate over exports.
-    return false;
-    var hasExports = false;
-    var areAllExportsComponents = true;
-    let isESM = "__esModule" in exports;
-    for(var key in exports){
-        hasExports = true;
-        if (key === "__esModule") continue;
-        var desc = Object.getOwnPropertyDescriptor(exports, key);
-        if (desc && desc.get && !isESM) // Don't invoke getters for CJS as they may have side effects.
-        return false;
-        var exportValue = exports[key];
-        if (!Refresh.isLikelyComponentType(exportValue)) areAllExportsComponents = false;
-    }
-    return hasExports && areAllExportsComponents;
-}
-function shouldInvalidateReactRefreshBoundary(prevExports, nextExports) {
-    var prevSignature = getRefreshBoundarySignature(prevExports);
-    var nextSignature = getRefreshBoundarySignature(nextExports);
-    if (prevSignature.length !== nextSignature.length) return true;
-    for(var i = 0; i < nextSignature.length; i++){
-        if (prevSignature[i] !== nextSignature[i]) return true;
-    }
-    return false;
-} // When this signature changes, it's unsafe to stop at this refresh boundary.
-function getRefreshBoundarySignature(exports) {
-    var signature = [];
-    signature.push(Refresh.getFamilyByType(exports));
-    if (exports == null || typeof exports !== "object") // Exit if we can't iterate over exports.
-    // (This is important for legacy environments.)
-    return signature;
-    let isESM = "__esModule" in exports;
-    for(var key in exports){
-        if (key === "__esModule") continue;
-        var desc = Object.getOwnPropertyDescriptor(exports, key);
-        if (desc && desc.get && !isESM) continue;
-        var exportValue = exports[key];
-        signature.push(key);
-        signature.push(Refresh.getFamilyByType(exportValue));
-    }
-    return signature;
-}
-function registerExportsForReactRefresh(module1) {
-    var exports = module1.exports, id = module1.id;
-    Refresh.register(exports, id + " %exports%");
-    if (exports == null || typeof exports !== "object") // Exit if we can't iterate over exports.
-    // (This is important for legacy environments.)
-    return;
-    let isESM = "__esModule" in exports;
-    for(var key in exports){
-        var desc = Object.getOwnPropertyDescriptor(exports, key);
-        if (desc && desc.get && !isESM) continue;
-        var exportValue = exports[key];
-        Refresh.register(exportValue, id + " %exports% " + key);
-    }
-}
-
-},{"react-refresh/runtime":"786KC"}],"kDXzA":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","./Upload":"kDXzA","./Analyses":"9hsWd","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./Header":"35enc"}],"kDXzA":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$a38c = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -27567,14 +27367,12 @@ const Upload = (props)=>{
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                className: "display-none",
                 type: "file",
                 accept: "application/json",
                 ref: hiddenFileInput,
                 onChange: handleChange,
-                onClick: handleClick,
-                style: {
-                    display: "none"
-                }
+                onClick: handleClick
             }, void 0, false, {
                 fileName: "src/components/Upload.tsx",
                 lineNumber: 58,
@@ -27706,7 +27504,37 @@ class RangedStatistic extends Statistic {
     }
 }
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"fxTRQ":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gkKU3":[function(require,module,exports) {
+exports.interopDefault = function(a) {
+    return a && a.__esModule ? a : {
+        default: a
+    };
+};
+exports.defineInteropFlag = function(a) {
+    Object.defineProperty(a, "__esModule", {
+        value: true
+    });
+};
+exports.exportAll = function(source, dest) {
+    Object.keys(source).forEach(function(key) {
+        if (key === "default" || key === "__esModule" || dest.hasOwnProperty(key)) return;
+        Object.defineProperty(dest, key, {
+            enumerable: true,
+            get: function() {
+                return source[key];
+            }
+        });
+    });
+    return dest;
+};
+exports.export = function(dest, destName, get) {
+    Object.defineProperty(dest, destName, {
+        enumerable: true,
+        get: get
+    });
+};
+
+},{}],"fxTRQ":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "Group", ()=>Group);
@@ -27736,7 +27564,127 @@ class Group {
     }
 }
 
-},{"./Statistic":"gGked","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"9hsWd":[function(require,module,exports) {
+},{"./Statistic":"gGked","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"km3Ru":[function(require,module,exports) {
+"use strict";
+var Refresh = require("react-refresh/runtime");
+function debounce(func, delay) {
+    var args;
+    var timeout = undefined;
+    return function(args) {
+        clearTimeout(timeout);
+        timeout = setTimeout(function() {
+            timeout = undefined;
+            func.call(null, args);
+        }, delay);
+    };
+}
+var enqueueUpdate = debounce(function() {
+    Refresh.performReactRefresh();
+}, 30); // Everthing below is either adapted or copied from
+// https://github.com/facebook/metro/blob/61de16bd1edd7e738dd0311c89555a644023ab2d/packages/metro/src/lib/polyfills/require.js
+// MIT License - Copyright (c) Facebook, Inc. and its affiliates.
+module.exports.prelude = function(module1) {
+    window.$RefreshReg$ = function(type, id) {
+        Refresh.register(type, module1.id + " " + id);
+    };
+    window.$RefreshSig$ = Refresh.createSignatureFunctionForTransform;
+};
+module.exports.postlude = function(module1) {
+    if (isReactRefreshBoundary(module1.exports)) {
+        registerExportsForReactRefresh(module1);
+        if (module1.hot) {
+            module1.hot.dispose(function(data) {
+                if (Refresh.hasUnrecoverableErrors()) window.location.reload();
+                data.prevExports = module1.exports;
+            });
+            module1.hot.accept(function(getParents) {
+                var prevExports = module1.hot.data.prevExports;
+                var nextExports = module1.exports; // Since we just executed the code for it, it's possible
+                // that the new exports make it ineligible for being a boundary.
+                var isNoLongerABoundary = !isReactRefreshBoundary(nextExports); // It can also become ineligible if its exports are incompatible
+                // with the previous exports.
+                // For example, if you add/remove/change exports, we'll want
+                // to re-execute the importing modules, and force those components
+                // to re-render. Similarly, if you convert a class component
+                // to a function, we want to invalidate the boundary.
+                var didInvalidate = shouldInvalidateReactRefreshBoundary(prevExports, nextExports);
+                if (isNoLongerABoundary || didInvalidate) {
+                    // We'll be conservative. The only case in which we won't do a full
+                    // reload is if all parent modules are also refresh boundaries.
+                    // In that case we'll add them to the current queue.
+                    var parents = getParents();
+                    if (parents.length === 0) {
+                        // Looks like we bubbled to the root. Can't recover from that.
+                        window.location.reload();
+                        return;
+                    }
+                    return parents;
+                }
+                enqueueUpdate();
+            });
+        }
+    }
+};
+function isReactRefreshBoundary(exports) {
+    if (Refresh.isLikelyComponentType(exports)) return true;
+    if (exports == null || typeof exports !== "object") // Exit if we can't iterate over exports.
+    return false;
+    var hasExports = false;
+    var areAllExportsComponents = true;
+    let isESM = "__esModule" in exports;
+    for(var key in exports){
+        hasExports = true;
+        if (key === "__esModule") continue;
+        var desc = Object.getOwnPropertyDescriptor(exports, key);
+        if (desc && desc.get && !isESM) // Don't invoke getters for CJS as they may have side effects.
+        return false;
+        var exportValue = exports[key];
+        if (!Refresh.isLikelyComponentType(exportValue)) areAllExportsComponents = false;
+    }
+    return hasExports && areAllExportsComponents;
+}
+function shouldInvalidateReactRefreshBoundary(prevExports, nextExports) {
+    var prevSignature = getRefreshBoundarySignature(prevExports);
+    var nextSignature = getRefreshBoundarySignature(nextExports);
+    if (prevSignature.length !== nextSignature.length) return true;
+    for(var i = 0; i < nextSignature.length; i++){
+        if (prevSignature[i] !== nextSignature[i]) return true;
+    }
+    return false;
+} // When this signature changes, it's unsafe to stop at this refresh boundary.
+function getRefreshBoundarySignature(exports) {
+    var signature = [];
+    signature.push(Refresh.getFamilyByType(exports));
+    if (exports == null || typeof exports !== "object") // Exit if we can't iterate over exports.
+    // (This is important for legacy environments.)
+    return signature;
+    let isESM = "__esModule" in exports;
+    for(var key in exports){
+        if (key === "__esModule") continue;
+        var desc = Object.getOwnPropertyDescriptor(exports, key);
+        if (desc && desc.get && !isESM) continue;
+        var exportValue = exports[key];
+        signature.push(key);
+        signature.push(Refresh.getFamilyByType(exportValue));
+    }
+    return signature;
+}
+function registerExportsForReactRefresh(module1) {
+    var exports = module1.exports, id = module1.id;
+    Refresh.register(exports, id + " %exports%");
+    if (exports == null || typeof exports !== "object") // Exit if we can't iterate over exports.
+    // (This is important for legacy environments.)
+    return;
+    let isESM = "__esModule" in exports;
+    for(var key in exports){
+        var desc = Object.getOwnPropertyDescriptor(exports, key);
+        if (desc && desc.get && !isESM) continue;
+        var exportValue = exports[key];
+        Refresh.register(exportValue, id + " %exports% " + key);
+    }
+}
+
+},{"react-refresh/runtime":"786KC"}],"9hsWd":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$ca0e = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -27750,15 +27698,16 @@ var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _collapsible = require("./Collapsible");
 var _groups = require("./Groups");
 var _statistics = require("./Statistics");
+var _row = require("./Row");
 const Analyses = (props)=>{
     const { data  } = props;
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
         children: [
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
                 children: "Analyses"
             }, void 0, false, {
                 fileName: "src/components/Analyses.tsx",
-                lineNumber: 15,
+                lineNumber: 16,
                 columnNumber: 7
             }, undefined),
             data.map((x)=>{
@@ -27766,52 +27715,53 @@ const Analyses = (props)=>{
                 const groups = x.groups;
                 return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _collapsible.Collapsible), {
                     open: false,
-                    label: x.identifier,
-                    identifier: true,
+                    header: x.identifier,
+                    headerBackground: "gray",
                     children: [
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                            className: "row",
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _row.Row), {
+                            indentationLevel: 4,
+                            hasBorder: true,
                             children: [
-                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                    className: "row-name",
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _row.RowName), {
+                                    isHeader: false,
+                                    isBold: true,
                                     children: "Method"
                                 }, void 0, false, {
                                     fileName: "src/components/Analyses.tsx",
-                                    lineNumber: 28,
+                                    lineNumber: 29,
                                     columnNumber: 15
                                 }, undefined),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                    className: "row-value",
                                     children: x.method
                                 }, void 0, false, {
                                     fileName: "src/components/Analyses.tsx",
-                                    lineNumber: 29,
+                                    lineNumber: 32,
                                     columnNumber: 15
                                 }, undefined)
                             ]
                         }, void 0, true, {
                             fileName: "src/components/Analyses.tsx",
-                            lineNumber: 27,
+                            lineNumber: 28,
                             columnNumber: 13
                         }, undefined),
                         statistics && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _statistics.Statistics), {
                             data: statistics
                         }, void 0, false, {
                             fileName: "src/components/Analyses.tsx",
-                            lineNumber: 31,
+                            lineNumber: 34,
                             columnNumber: 28
                         }, undefined),
                         groups && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _groups.Groups), {
                             data: groups
                         }, void 0, false, {
                             fileName: "src/components/Analyses.tsx",
-                            lineNumber: 32,
+                            lineNumber: 35,
                             columnNumber: 24
                         }, undefined)
                     ]
                 }, x.identifier, true, {
                     fileName: "src/components/Analyses.tsx",
-                    lineNumber: 21,
+                    lineNumber: 22,
                     columnNumber: 11
                 }, undefined);
             })
@@ -27827,7 +27777,7 @@ $RefreshReg$(_c, "Analyses");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","./Collapsible":"98sFe","./Groups":"96v6N","./Statistics":"dg00I","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"98sFe":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","./Collapsible":"98sFe","./Groups":"96v6N","./Statistics":"dg00I","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./Row":"BEoMz"}],"98sFe":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$d73a = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -27839,63 +27789,93 @@ parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "Collapsible", ()=>Collapsible);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
+var _buttons = require("./Buttons");
+var _row = require("./Row");
+var _icons = require("./Icons");
 var _s = $RefreshSig$();
 const Collapsible = (props)=>{
     _s();
-    const { open , label , identifier , children  } = props;
+    const { open , header , headerBackground , handleInsertClick , children  } = props;
     const [isOpen, setIsOpen] = (0, _react.useState)(open);
     const toggleOpen = ()=>{
         setIsOpen((prev)=>!prev);
     };
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        className: "collapsible",
         children: [
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                className: `collapsible-header row ${identifier ? "row-identifier" : ""}`,
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _row.Row), {
+                background: headerBackground,
                 children: [
-                    !isOpen && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
-                        className: "chevron material-symbols-outlined",
+                    !isOpen && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _buttons.Button), {
                         onClick: toggleOpen,
-                        children: "chevron_right"
+                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _icons.ChevronRight), {
+                            width: 8,
+                            height: 12
+                        }, void 0, false, {
+                            fileName: "src/components/Collapsible.tsx",
+                            lineNumber: 27,
+                            columnNumber: 13
+                        }, undefined)
                     }, void 0, false, {
                         fileName: "src/components/Collapsible.tsx",
                         lineNumber: 26,
                         columnNumber: 11
                     }, undefined),
-                    isOpen && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
-                        className: "chevron material-symbols-outlined",
+                    isOpen && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _buttons.Button), {
                         onClick: toggleOpen,
-                        children: "expand_more"
+                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _icons.ChevronDown), {
+                            width: 12,
+                            height: 8,
+                            className: "fill-blue"
+                        }, void 0, false, {
+                            fileName: "src/components/Collapsible.tsx",
+                            lineNumber: 33,
+                            columnNumber: 13
+                        }, undefined)
                     }, void 0, false, {
                         fileName: "src/components/Collapsible.tsx",
-                        lineNumber: 31,
+                        lineNumber: 32,
                         columnNumber: 11
                     }, undefined),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
-                        children: label
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _row.RowName), {
+                        isHeader: true,
+                        children: header
                     }, void 0, false, {
                         fileName: "src/components/Collapsible.tsx",
-                        lineNumber: 39,
+                        lineNumber: 37,
                         columnNumber: 9
+                    }, undefined),
+                    handleInsertClick && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _buttons.Button), {
+                        onClick: handleInsertClick,
+                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _icons.Table), {
+                            width: 14,
+                            height: 14
+                        }, void 0, false, {
+                            fileName: "src/components/Collapsible.tsx",
+                            lineNumber: 41,
+                            columnNumber: 13
+                        }, undefined)
+                    }, void 0, false, {
+                        fileName: "src/components/Collapsible.tsx",
+                        lineNumber: 40,
+                        columnNumber: 11
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/components/Collapsible.tsx",
-                lineNumber: 20,
+                lineNumber: 24,
                 columnNumber: 7
             }, undefined),
             isOpen && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                className: "collapsible-content",
                 children: children
             }, void 0, false, {
                 fileName: "src/components/Collapsible.tsx",
-                lineNumber: 41,
+                lineNumber: 45,
                 columnNumber: 18
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/components/Collapsible.tsx",
-        lineNumber: 19,
+        lineNumber: 23,
         columnNumber: 5
     }, undefined);
 };
@@ -27905,6 +27885,396 @@ var _c;
 $RefreshReg$(_c, "Collapsible");
 
   $parcel$ReactRefreshHelpers$d73a.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./Icons":"eyY6t","./Row":"BEoMz","./Buttons":"1HBc1"}],"eyY6t":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$5e24 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$5e24.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "Logo", ()=>Logo);
+parcelHelpers.export(exports, "ChevronRight", ()=>ChevronRight);
+parcelHelpers.export(exports, "ChevronDown", ()=>ChevronDown);
+parcelHelpers.export(exports, "Gear", ()=>Gear);
+parcelHelpers.export(exports, "Plus", ()=>Plus);
+parcelHelpers.export(exports, "Table", ()=>Table);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+const Logo = (props)=>{
+    const { width , height  } = props;
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("svg", {
+        width: width,
+        height: height,
+        viewBox: "0 0 224 224",
+        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("g", {
+            children: [
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("path", {
+                    d: "M219 119.003 L219 149.003 C219 154.003 219 154.003 214 157.003 L119 214.003 C114 217.003 113 217.003 112 217.003 111 217.003 110 217.003 105 214.003 L10 157.003 C5 154.003 5 154.003 5 149.003 L5 119.003 C5 124.003 5 124.003 10 127.003 L105 184.003 C110 187.003 111 187.003 112 187.003 113 187.003 114 187.003 119 184.003 L214 127.003 C219 124.003 219 124.003 219 119.003 Z",
+                    fill: "#e59215",
+                    fillOpacity: "1",
+                    stroke: "none"
+                }, void 0, false, {
+                    fileName: "src/components/Icons.tsx",
+                    lineNumber: 12,
+                    columnNumber: 9
+                }, undefined),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("path", {
+                    d: "M219 74.003 L219 108.003 C219 113.003 219 113.003 214 116.003 L119 173.003 C114 176.003 113 176.003 112 176.003 111 176.003 110 176.003 105 173.003 L10 116.003 C5 113.003 5 113.003 5 108.003 L5 74.003 C5 75.003 5 79.003 10 82.003 L105 139.003 C110 142.003 111 142.003 112 142.003 113 142.003 114 142.003 119 139.003 L214 82.003 C219 79.003 219 75.003 219 74.003 Z",
+                    fill: "#26587b",
+                    fillOpacity: "1",
+                    stroke: "none"
+                }, void 0, false, {
+                    fileName: "src/components/Icons.tsx",
+                    lineNumber: 18,
+                    columnNumber: 9
+                }, undefined),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("path", {
+                    d: "M219 74.003 C219 73.003 219 108.003 219 108.003 219 113.003 219 113.003 214 116.003 L119 173.003 C114 176.003 113 176.003 112 176.003 L112 142.003 C113 142.003 114 142.003 119 139.003 L214 82.003 C219 79.003 219 75.003 219 74.003 Z",
+                    fill: "#1a415a",
+                    fillOpacity: "1",
+                    stroke: "none"
+                }, void 0, false, {
+                    fileName: "src/components/Icons.tsx",
+                    lineNumber: 24,
+                    columnNumber: 9
+                }, undefined),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("path", {
+                    d: "M10 66.003 L105 9.003 C110 6.003 111.013 5.982 112 6.003 113.013 6.024 114 6.003 119 9.003 L214 66.003 C219 69.003 219 74.003 219 74.003 219 74.003 219 79.003 214 82.003 L119 139.003 C114 142.003 113 142.003 112 142.003 111 142.003 110 142.003 105 139.003 L10 82.003 C5 79.003 5 75.003 5 74.003 5 73.003 5 69.003 10 66.003 Z M42 74.003 L112 116.003 182 74.003 112 32.003 Z",
+                    fill: "#5b9bba",
+                    fillOpacity: "1",
+                    stroke: "none"
+                }, void 0, false, {
+                    fileName: "src/components/Icons.tsx",
+                    lineNumber: 30,
+                    columnNumber: 9
+                }, undefined),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("path", {
+                    d: "M112 6.003 C113 6.003 114 6.003 119 9.003 L214 66.003 C219 69.003 219 73.003 219 74.003 219 75.003 219 79.003 214 82.003 L119 139.003 C114 142.003 113 142.003 112 142.003 L112 116.003 182 74.003 112 32.003 Z",
+                    fill: "#38728d",
+                    fillOpacity: "1",
+                    stroke: "none"
+                }, void 0, false, {
+                    fileName: "src/components/Icons.tsx",
+                    lineNumber: 36,
+                    columnNumber: 9
+                }, undefined),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("path", {
+                    d: "M97 101.003 L107 107 129 94 119 88 Z",
+                    fill: "#e59215",
+                    fillOpacity: "1",
+                    stroke: "#e59215",
+                    strokeWidth: "1",
+                    strokeOpacity: "1",
+                    strokeLinejoin: "round"
+                }, void 0, false, {
+                    fileName: "src/components/Icons.tsx",
+                    lineNumber: 42,
+                    columnNumber: 9
+                }, undefined),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("path", {
+                    d: "M147 59 L87 95 77 89.003 137 53 Z",
+                    fill: "#e59215",
+                    fillOpacity: "1",
+                    stroke: "#e59215",
+                    strokeWidth: "1",
+                    strokeOpacity: "1",
+                    strokeLinejoin: "round"
+                }, void 0, false, {
+                    fileName: "src/components/Icons.tsx",
+                    lineNumber: 51,
+                    columnNumber: 9
+                }, undefined),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("path", {
+                    d: "M107 59 L67 83 57 77 97 53 Z",
+                    fill: "#e59215",
+                    fillOpacity: "1",
+                    stroke: "#e59215",
+                    strokeWidth: "1",
+                    strokeOpacity: "1",
+                    strokeLinejoin: "round"
+                }, void 0, false, {
+                    fileName: "src/components/Icons.tsx",
+                    lineNumber: 60,
+                    columnNumber: 9
+                }, undefined)
+            ]
+        }, void 0, true, {
+            fileName: "src/components/Icons.tsx",
+            lineNumber: 11,
+            columnNumber: 7
+        }, undefined)
+    }, void 0, false, {
+        fileName: "src/components/Icons.tsx",
+        lineNumber: 10,
+        columnNumber: 5
+    }, undefined);
+};
+_c = Logo;
+const ChevronRight = (props)=>{
+    const { width , height , className  } = props;
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("svg", {
+        width: width,
+        height: height,
+        className: className,
+        viewBox: "0 0 8 12",
+        xmlns: "http://www.w3.org/2000/svg",
+        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("path", {
+            fillRule: "evenodd",
+            stroke: "none",
+            d: "M 1.415 0 L 0 1.415 L 4.585 6 L 0 10.585 L 1.415 12 L 7.415 6 Z"
+        }, void 0, false, {
+            fileName: "src/components/Icons.tsx",
+            lineNumber: 91,
+            columnNumber: 7
+        }, undefined)
+    }, void 0, false, {
+        fileName: "src/components/Icons.tsx",
+        lineNumber: 84,
+        columnNumber: 5
+    }, undefined);
+};
+_c1 = ChevronRight;
+const ChevronDown = (props)=>{
+    const { width , height , className  } = props;
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("svg", {
+        width: width,
+        height: height,
+        className: className,
+        viewBox: "0 0 12 8",
+        xmlns: "http://www.w3.org/2000/svg",
+        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("path", {
+            fillRule: "evenodd",
+            stroke: "none",
+            d: "M 0 2 L 1.5 0.5 L 6 5 L 10.5 0.5 L 12 2 L 6 8 Z"
+        }, void 0, false, {
+            fileName: "src/components/Icons.tsx",
+            lineNumber: 117,
+            columnNumber: 7
+        }, undefined)
+    }, void 0, false, {
+        fileName: "src/components/Icons.tsx",
+        lineNumber: 110,
+        columnNumber: 5
+    }, undefined);
+};
+_c2 = ChevronDown;
+const Gear = (props)=>{
+    const { width , height , className  } = props;
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("svg", {
+        width: width,
+        height: height,
+        className: className,
+        viewBox: "0 0 16 16",
+        xmlns: "http://www.w3.org/2000/svg",
+        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("path", {
+            fillRule: "evenodd",
+            stroke: "none",
+            d: "M 14.007465 8.784 C 14.039465 8.528 14.063465 8.272 14.063465 8 C 14.063465 7.728001 14.039465 7.472 14.007465 7.216 L 15.695465 5.896 C 15.847466 5.776 15.887466 5.559999 15.791466 5.384 L 14.191465 2.616 C 14.095466 2.440001 13.879465 2.375999 13.703465 2.440001 L 11.711465 3.24 C 11.295465 2.92 10.847466 2.656 10.359466 2.456 L 10.055466 0.336 C 10.031466 0.144 9.863465 0 9.663465 0 L 6.463465 0 C 6.263465 0 6.095465 0.144 6.071465 0.336 L 5.767465 2.456 C 5.279465 2.656 4.831465 2.927999 4.415465 3.24 L 2.423465 2.440001 C 2.239465 2.368 2.031465 2.440001 1.935465 2.616 L 0.335465 5.384 C 0.231465 5.559999 0.279465 5.776 0.431465 5.896 L 2.119465 7.216 C 2.087465 7.472 2.063465 7.736 2.063465 8 C 2.063465 8.264 2.087465 8.528 2.119465 8.784 L 0.431465 10.104 C 0.279465 10.224 0.239465 10.44 0.335465 10.616 L 1.935465 13.384 C 2.031465 13.56 2.247465 13.624 2.423465 13.56 L 4.415465 12.76 C 4.831465 13.08 5.279465 13.344 5.767465 13.544 L 6.071465 15.664 C 6.095465 15.856 6.263465 16 6.463465 16 L 9.663465 16 C 9.863465 16 10.031466 15.856 10.055466 15.664 L 10.359466 13.544 C 10.847466 13.344 11.295465 13.072 11.711465 12.76 L 13.703465 13.56 C 13.887465 13.632 14.095466 13.56 14.191465 13.384 L 15.791466 10.616 C 15.887466 10.44 15.847466 10.224 15.695465 10.104 L 14.007465 8.784 L 14.007465 8.784 Z M 8 11 C 6.345714 11 5 9.654285 5 8 C 5 6.345715 6.345714 5 8 5 C 9.654285 5 11 6.345715 11 8 C 11 9.654285 9.654285 11 8 11 L 8 11 Z"
+        }, void 0, false, {
+            fileName: "src/components/Icons.tsx",
+            lineNumber: 143,
+            columnNumber: 7
+        }, undefined)
+    }, void 0, false, {
+        fileName: "src/components/Icons.tsx",
+        lineNumber: 136,
+        columnNumber: 5
+    }, undefined);
+};
+_c3 = Gear;
+const Plus = (props)=>{
+    const { width , height , className  } = props;
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("svg", {
+        width: width,
+        height: height,
+        className: className,
+        viewBox: "0 0 16 16",
+        xmlns: "http://www.w3.org/2000/svg",
+        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("path", {
+            fill: "#3079ed",
+            stroke: "none",
+            d: "M 16 9 L 9 9 L 9 16 L 7 16 L 7 9 L 0 9 L 0 7 L 7 7 L 7 0 L 9 0 L 9 7 L 16 7 L 16 9 Z"
+        }, void 0, false, {
+            fileName: "src/components/Icons.tsx",
+            lineNumber: 169,
+            columnNumber: 7
+        }, undefined)
+    }, void 0, false, {
+        fileName: "src/components/Icons.tsx",
+        lineNumber: 162,
+        columnNumber: 5
+    }, undefined);
+};
+_c4 = Plus;
+const Table = (props)=>{
+    const { width , height , className  } = props;
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("svg", {
+        width: width,
+        height: height,
+        className: className,
+        viewBox: "0 0 14 14",
+        xmlns: "http://www.w3.org/2000/svg",
+        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("path", {
+            fill: "#3079ed",
+            stroke: "none",
+            d: "M 12.5 0 L 1.5 0 C 0.67 0 0 0.67 0 1.5 L 0 12.5 C 0 13.33 0.67 14 1.5 14 L 12.5 14 C 13.33 14 14 13.33 14 12.5 L 14 1.5 C 14 0.67 13.33 0 12.5 0 Z M 1.5 5.25 L 4.17 5.25 L 4.17 12.5 L 1.5 12.5 L 1.5 5.25 Z M 8.33 5.25 L 8.33 12.5 L 5.67 12.5 L 5.67 5.25 L 8.33 5.25 Z M 12.5 12.5 L 9.83 12.5 L 9.83 5.25 L 12.5 5.25 L 12.5 12.5 Z M 12.5 3.75 L 1.5 3.75 L 1.5 1.5 L 12.5 1.5 L 12.5 3.75 Z"
+        }, void 0, false, {
+            fileName: "src/components/Icons.tsx",
+            lineNumber: 195,
+            columnNumber: 7
+        }, undefined)
+    }, void 0, false, {
+        fileName: "src/components/Icons.tsx",
+        lineNumber: 188,
+        columnNumber: 5
+    }, undefined);
+};
+_c5 = Table;
+var _c, _c1, _c2, _c3, _c4, _c5;
+$RefreshReg$(_c, "Logo");
+$RefreshReg$(_c1, "ChevronRight");
+$RefreshReg$(_c2, "ChevronDown");
+$RefreshReg$(_c3, "Gear");
+$RefreshReg$(_c4, "Plus");
+$RefreshReg$(_c5, "Table");
+
+  $parcel$ReactRefreshHelpers$5e24.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"BEoMz":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$2aca = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$2aca.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "Row", ()=>Row);
+parcelHelpers.export(exports, "RowName", ()=>RowName);
+parcelHelpers.export(exports, "RowValue", ()=>RowValue);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+const Row = (props)=>{
+    const { indentationLevel , background , hasBorder , children  } = props;
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        className: `min-h-6 flex align-items ms-${indentationLevel} bg-${background} ${hasBorder ? "border-bottom" : ""}`,
+        children: children
+    }, void 0, false, {
+        fileName: "src/components/Row.tsx",
+        lineNumber: 14,
+        columnNumber: 5
+    }, undefined);
+};
+_c = Row;
+const RowName = (props)=>{
+    const { isHeader , isBold , children  } = props;
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        className: `min-h-1 flex align-items ${isHeader ? "w-100" : "w-23"} ${isBold ? "bold" : "normal"}`,
+        children: children
+    }, void 0, false, {
+        fileName: "src/components/Row.tsx",
+        lineNumber: 34,
+        columnNumber: 5
+    }, undefined);
+};
+_c1 = RowName;
+const RowValue = (props)=>{
+    const { children  } = props;
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        className: "grow-1",
+        children: children
+    }, void 0, false, {
+        fileName: "src/components/Row.tsx",
+        lineNumber: 51,
+        columnNumber: 10
+    }, undefined);
+};
+_c2 = RowValue;
+var _c, _c1, _c2;
+$RefreshReg$(_c, "Row");
+$RefreshReg$(_c1, "RowName");
+$RefreshReg$(_c2, "RowValue");
+
+  $parcel$ReactRefreshHelpers$2aca.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"1HBc1":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$6645 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$6645.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "Button", ()=>Button);
+parcelHelpers.export(exports, "Checkbox", ()=>Checkbox);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _s = $RefreshSig$();
+const Button = (props)=>{
+    _s();
+    const { onClick , children  } = props;
+    const [isHover, setIsHover] = (0, _react.useState)(false);
+    const handleMouseEnter = ()=>{
+        setIsHover(true);
+    };
+    const handleMouseLeave = ()=>{
+        setIsHover(false);
+    };
+    const handleClick = ()=>{
+        onClick();
+    };
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        className: `button-size-1 shrink-0 flex justify-content align-items ${isHover ? "hover-gray" : ""}`,
+        onClick: handleClick,
+        onMouseEnter: handleMouseEnter,
+        onMouseLeave: handleMouseLeave,
+        children: children
+    }, void 0, false, {
+        fileName: "src/components/Buttons.tsx",
+        lineNumber: 24,
+        columnNumber: 5
+    }, undefined);
+};
+_s(Button, "FTC8EpIspi2qaDtU9gFRhqZT02A=");
+_c = Button;
+const Checkbox = (props)=>{
+    const { onClick  } = props;
+    const handleClick = ()=>{
+        onClick();
+    };
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        className: "button-size-1 shrink-0 flex justify-content align-items",
+        onClick: handleClick,
+        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+            type: "checkbox"
+        }, void 0, false, {
+            fileName: "src/components/Buttons.tsx",
+            lineNumber: 53,
+            columnNumber: 7
+        }, undefined)
+    }, void 0, false, {
+        fileName: "src/components/Buttons.tsx",
+        lineNumber: 49,
+        columnNumber: 5
+    }, undefined);
+};
+_c1 = Checkbox;
+var _c, _c1;
+$RefreshReg$(_c, "Button");
+$RefreshReg$(_c1, "Checkbox");
+
+  $parcel$ReactRefreshHelpers$6645.postlude(module);
 } finally {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
@@ -27924,32 +28294,36 @@ var _collapsible = require("./Collapsible");
 var _statistics = require("./Statistics");
 const Groups = (props)=>{
     const { data  } = props;
+    const handleAddClick = ()=>{
+        console.log("inserting table");
+    };
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
         children: data.map((x)=>{
             const statistics = x.statistics;
             const groups = x.groups;
             return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _collapsible.Collapsible), {
                 open: false,
-                label: x.name,
+                header: x.name,
+                handleAddClick: handleAddClick,
                 children: [
                     statistics && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _statistics.Statistics), {
                         data: x.statistics
                     }, void 0, false, {
                         fileName: "src/components/Groups.tsx",
-                        lineNumber: 20,
+                        lineNumber: 29,
                         columnNumber: 28
                     }, undefined),
                     groups && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(Groups, {
                         data: groups
                     }, void 0, false, {
                         fileName: "src/components/Groups.tsx",
-                        lineNumber: 21,
+                        lineNumber: 30,
                         columnNumber: 24
                     }, undefined)
                 ]
             }, x.identifier, true, {
                 fileName: "src/components/Groups.tsx",
-                lineNumber: 19,
+                lineNumber: 23,
                 columnNumber: 11
             }, undefined);
         })
@@ -27976,6 +28350,9 @@ parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "Statistics", ()=>Statistics);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
+var _row = require("./Row");
+var _buttons = require("./Buttons");
+var _icons = require("./Icons");
 var _formatValue = require("../functions/formatValue");
 var _s = $RefreshSig$();
 const Statistics = (props)=>{
@@ -28032,47 +28409,108 @@ const Statistics = (props)=>{
     }, [
         data
     ]);
+    const handleAddClick = ()=>{
+        console.log("Inserting statistic");
+    };
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
         children: [
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                className: "row",
-                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                    className: "row-name",
-                    children: "Statistics:"
-                }, void 0, false, {
-                    fileName: "src/components/Statistics.tsx",
-                    lineNumber: 78,
-                    columnNumber: 9
-                }, undefined)
-            }, void 0, false, {
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _row.Row), {
+                indentationLevel: 4,
+                hasBorder: true,
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _row.RowName), {
+                        isHeader: true,
+                        isBold: true,
+                        children: "Statistics:"
+                    }, void 0, false, {
+                        fileName: "src/components/Statistics.tsx",
+                        lineNumber: 85,
+                        columnNumber: 9
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _buttons.Button), {
+                        onClick: handleAddClick,
+                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _icons.Gear), {
+                            className: "fill-blue",
+                            width: 16,
+                            height: 16
+                        }, void 0, false, {
+                            fileName: "src/components/Statistics.tsx",
+                            lineNumber: 90,
+                            columnNumber: 11
+                        }, undefined)
+                    }, void 0, false, {
+                        fileName: "src/components/Statistics.tsx",
+                        lineNumber: 89,
+                        columnNumber: 9
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _buttons.Button), {
+                        onClick: handleAddClick,
+                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _icons.Plus), {
+                            width: 14,
+                            height: 14
+                        }, void 0, false, {
+                            fileName: "src/components/Statistics.tsx",
+                            lineNumber: 94,
+                            columnNumber: 11
+                        }, undefined)
+                    }, void 0, false, {
+                        fileName: "src/components/Statistics.tsx",
+                        lineNumber: 93,
+                        columnNumber: 9
+                    }, undefined)
+                ]
+            }, void 0, true, {
                 fileName: "src/components/Statistics.tsx",
-                lineNumber: 77,
+                lineNumber: 84,
                 columnNumber: 7
             }, undefined),
-            items.map((x)=>{
-                return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                    className: "row",
+            items.map((x, index)=>{
+                const lastRow = index === items.length - 1;
+                return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _row.Row), {
+                    indentationLevel: 8,
+                    hasBorder: !lastRow,
                     children: [
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                            className: "row-name",
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _row.RowName), {
+                            isHeader: false,
                             children: x.name
                         }, void 0, false, {
                             fileName: "src/components/Statistics.tsx",
-                            lineNumber: 83,
+                            lineNumber: 101,
                             columnNumber: 13
                         }, undefined),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                            className: "row-value",
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _row.RowValue), {
                             children: x.value
                         }, void 0, false, {
                             fileName: "src/components/Statistics.tsx",
-                            lineNumber: 84,
+                            lineNumber: 102,
+                            columnNumber: 13
+                        }, undefined),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _buttons.Checkbox), {
+                            onClick: handleAddClick
+                        }, void 0, false, {
+                            fileName: "src/components/Statistics.tsx",
+                            lineNumber: 103,
+                            columnNumber: 13
+                        }, undefined),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _buttons.Button), {
+                            onClick: handleAddClick,
+                            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _icons.Plus), {
+                                width: 14,
+                                height: 14
+                            }, void 0, false, {
+                                fileName: "src/components/Statistics.tsx",
+                                lineNumber: 105,
+                                columnNumber: 15
+                            }, undefined)
+                        }, void 0, false, {
+                            fileName: "src/components/Statistics.tsx",
+                            lineNumber: 104,
                             columnNumber: 13
                         }, undefined)
                     ]
                 }, x.identifier, true, {
                     fileName: "src/components/Statistics.tsx",
-                    lineNumber: 82,
+                    lineNumber: 100,
                     columnNumber: 11
                 }, undefined);
             })
@@ -28089,7 +28527,7 @@ $RefreshReg$(_c, "Statistics");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../functions/formatValue":"k49Gl","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"k49Gl":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../functions/formatValue":"k49Gl","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./Icons":"eyY6t","./Row":"BEoMz","./Buttons":"1HBc1"}],"k49Gl":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "formatValue", ()=>formatValue);
@@ -28148,7 +28586,54 @@ const formatValue = (x, decimals, bound)=>{
     return value;
 };
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["1xC6H","cI4X8","7Axpv"], "7Axpv", "parcelRequire3ca7")
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"35enc":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$d5a6 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$d5a6.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "Header", ()=>Header);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _icons = require("./Icons");
+const Header = ()=>{
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        className: "mb-1 m-n1 p-1 bg-gray flex align-items gap-2",
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _icons.Logo), {
+                width: 32,
+                height: 32
+            }, void 0, false, {
+                fileName: "src/components/Header.tsx",
+                lineNumber: 6,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
+                children: "tidystats"
+            }, void 0, false, {
+                fileName: "src/components/Header.tsx",
+                lineNumber: 7,
+                columnNumber: 7
+            }, undefined)
+        ]
+    }, void 0, true, {
+        fileName: "src/components/Header.tsx",
+        lineNumber: 5,
+        columnNumber: 5
+    }, undefined);
+};
+_c = Header;
+var _c;
+$RefreshReg$(_c, "Header");
+
+  $parcel$ReactRefreshHelpers$d5a6.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","./Icons":"eyY6t","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}]},["1xC6H","cRGSm","aryw8"], "aryw8", "parcelRequire3ca7")
 
 </script>
 </body>

@@ -1,4 +1,7 @@
 import { useEffect, useState } from "react"
+import { Row, RowName, RowValue } from "./Row"
+import { Button, Checkbox } from "./Buttons"
+import { Gear, Plus } from "./Icons"
 import { Statistic, RangedStatistic } from "../classes/Statistic"
 import { formatValue } from "../functions/formatValue"
 
@@ -72,17 +75,36 @@ export const Statistics = (props: StatisticsProps) => {
     setItems(initialItems)
   }, [data])
 
+  const handleAddClick = () => {
+    console.log("Inserting statistic")
+  }
+
   return (
     <>
-      <div className="row">
-        <div className="row-name">Statistics:</div>
-      </div>
-      {items.map((x: itemsProps) => {
+      <Row indentationLevel={4} hasBorder={true}>
+        <RowName isHeader={true} isBold={true}>
+          Statistics:
+        </RowName>
+
+        <Button onClick={handleAddClick}>
+          <Gear className="fill-blue" width={16} height={16} />
+        </Button>
+
+        <Button onClick={handleAddClick}>
+          <Plus width={14} height={14} />
+        </Button>
+      </Row>
+      {items.map((x: itemsProps, index: number) => {
+        const lastRow = index === items.length - 1
         return (
-          <div key={x.identifier} className="row">
-            <div className="row-name">{x.name}</div>
-            <div className="row-value">{x.value}</div>
-          </div>
+          <Row key={x.identifier} indentationLevel={8} hasBorder={!lastRow}>
+            <RowName isHeader={false}>{x.name}</RowName>
+            <RowValue>{x.value}</RowValue>
+            <Checkbox onClick={handleAddClick} />
+            <Button onClick={handleAddClick}>
+              <Plus width={14} height={14} />
+            </Button>
+          </Row>
         )
       })}
     </>

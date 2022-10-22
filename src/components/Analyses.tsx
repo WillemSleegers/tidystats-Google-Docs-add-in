@@ -2,6 +2,7 @@ import { Analysis } from "../classes/Analysis"
 import { Collapsible } from "./Collapsible"
 import { Groups } from "./Groups"
 import { Statistics } from "./Statistics"
+import { Row, RowName } from "./Row"
 
 type AnalysesProps = {
   data: Analysis[]
@@ -12,7 +13,7 @@ export const Analyses = (props: AnalysesProps) => {
 
   return (
     <>
-      <h3>Analyses</h3>
+      <h2>Analyses</h2>
       {data.map((x: Analysis) => {
         const statistics = x.statistics
         const groups = x.groups
@@ -21,13 +22,15 @@ export const Analyses = (props: AnalysesProps) => {
           <Collapsible
             key={x.identifier}
             open={false}
-            label={x.identifier}
-            identifier={true}
+            header={x.identifier}
+            headerBackground="gray"
           >
-            <div className="row">
-              <div className="row-name">Method</div>
-              <div className="row-value">{x.method}</div>
-            </div>
+            <Row indentationLevel={4} hasBorder={true}>
+              <RowName isHeader={false} isBold={true}>
+                Method
+              </RowName>
+              <div>{x.method}</div>
+            </Row>
             {statistics && <Statistics data={statistics} />}
             {groups && <Groups data={groups} />}
           </Collapsible>

@@ -9,6 +9,10 @@ type GroupsProps = {
 export const Groups = (props: GroupsProps) => {
   const { data } = props
 
+  const handleAddClick = () => {
+    console.log("inserting table")
+  }
+
   return (
     <>
       {data.map((x: Group) => {
@@ -16,7 +20,12 @@ export const Groups = (props: GroupsProps) => {
         const groups = x.groups
 
         return (
-          <Collapsible key={x.identifier} open={false} label={x.name}>
+          <Collapsible
+            key={x.identifier}
+            open={false}
+            header={x.name}
+            handleAddClick={handleAddClick}
+          >
             {statistics && <Statistics data={x.statistics!} />}
             {groups && <Groups data={groups} />}
           </Collapsible>

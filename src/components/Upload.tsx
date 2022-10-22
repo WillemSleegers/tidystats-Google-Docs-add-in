@@ -56,12 +56,12 @@ const Upload = (props: UploadProps) => {
         Upload statistics
       </button>
       <input
+        className="display-none"
         type="file"
         accept="application/json"
         ref={hiddenFileInput}
         onChange={handleChange}
         onClick={handleClick}
-        style={{ display: "none" }}
       />
       {showErrorMessage && (
         <p className="error">File must be a tidystats JSON file.</p>

@@ -1,14 +1,18 @@
 import { ReactNode, useState } from "react"
+import { Button } from "./Buttons"
+import { Row, RowName } from "./Row"
+import { ChevronDown, ChevronRight, Table } from "./Icons"
 
 interface CollapsibleProps {
-  open: boolean
-  label: string
-  identifier?: boolean
+  header: string
+  headerBackground?: "gray"
+  open?: boolean
+  handleInsertClick?: Function
   children: ReactNode
 }
 
 export const Collapsible = (props: CollapsibleProps) => {
-  const { open, label, identifier, children } = props
+  const { open, header, headerBackground, handleInsertClick, children } = props
   const [isOpen, setIsOpen] = useState(open)
 
   const toggleOpen = () => {
@@ -16,29 +20,29 @@ export const Collapsible = (props: CollapsibleProps) => {
   }
 
   return (
-    <div className="collapsible">
-      <div
-        className={`collapsible-header row ${
-          identifier ? "row-identifier" : ""
-        }`}
-      >
+    <div>
+      <Row background={headerBackground}>
         {!isOpen && (
-          <a className="chevron material-symbols-outlined" onClick={toggleOpen}>
-            chevron_right
-          </a>
-        )}
-        {isOpen && (
-          <span
-            className="chevron material-symbols-outlined"
-            onClick={toggleOpen}
-          >
-            expand_more
-          </span>
+          <Button onClick={toggleOpen}>
+            <ChevronRight width={8} height={12} />
+          </Button>
         )}
 
-        <span>{label}</span>
-      </div>
-      {isOpen && <div className="collapsible-content">{children}</div>}
+        {isOpen && (
+          <Button onClick={toggleOpen}>
+            <ChevronDown width={12} height={8} className="fill-blue" />
+          </Button>
+        )}
+
+        <RowName isHeader={true}>{header}</RowName>
+
+        {handleInsertClick && (
+          <Button onClick={handleInsertClick}>
+            <Table width={14} height={14} />
+          </Button>
+        )}
+      </Row>
+      {isOpen && <div>{children}</div>}
     </div>
   )
 }
