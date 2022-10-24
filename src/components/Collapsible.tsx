@@ -6,13 +6,13 @@ import { ChevronDown, ChevronRight, Table } from "./Icons"
 interface CollapsibleProps {
   header: string
   headerBackground?: "gray"
-  open?: boolean
   handleInsertClick?: Function
+  open?: boolean
   children: ReactNode
 }
 
 export const Collapsible = (props: CollapsibleProps) => {
-  const { open, header, headerBackground, handleInsertClick, children } = props
+  const { header, headerBackground, handleInsertClick, open, children } = props
   const [isOpen, setIsOpen] = useState(open)
 
   const toggleOpen = () => {
@@ -20,7 +20,7 @@ export const Collapsible = (props: CollapsibleProps) => {
   }
 
   return (
-    <div>
+    <>
       <Row background={headerBackground}>
         {!isOpen && (
           <Button onClick={toggleOpen}>
@@ -43,6 +43,6 @@ export const Collapsible = (props: CollapsibleProps) => {
         )}
       </Row>
       {isOpen && <div>{children}</div>}
-    </div>
+    </>
   )
 }

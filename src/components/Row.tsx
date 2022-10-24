@@ -32,7 +32,7 @@ export const RowName = (props: RowNameProps) => {
 
   return (
     <div
-      className={`min-h-1 flex align-items ${isHeader ? "w-100" : "w-23"} ${
+      className={`flex align-items ${isHeader ? "w-100" : "w-23"} ${
         isBold ? "bold" : "normal"
       }`}
     >

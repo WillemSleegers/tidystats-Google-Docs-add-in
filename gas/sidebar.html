@@ -27795,12 +27795,12 @@ var _icons = require("./Icons");
 var _s = $RefreshSig$();
 const Collapsible = (props)=>{
     _s();
-    const { open , header , headerBackground , handleInsertClick , children  } = props;
+    const { header , headerBackground , handleInsertClick , open , children  } = props;
     const [isOpen, setIsOpen] = (0, _react.useState)(open);
     const toggleOpen = ()=>{
         setIsOpen((prev)=>!prev);
     };
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _row.Row), {
                 background: headerBackground,
@@ -27873,11 +27873,7 @@ const Collapsible = (props)=>{
                 columnNumber: 18
             }, undefined)
         ]
-    }, void 0, true, {
-        fileName: "src/components/Collapsible.tsx",
-        lineNumber: 23,
-        columnNumber: 5
-    }, undefined);
+    }, void 0, true);
 };
 _s(Collapsible, "VL896lenp0EBD8yl2XSBtUW3qhI=");
 _c = Collapsible;
@@ -28176,7 +28172,7 @@ _c = Row;
 const RowName = (props)=>{
     const { isHeader , isBold , children  } = props;
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        className: `min-h-1 flex align-items ${isHeader ? "w-100" : "w-23"} ${isBold ? "bold" : "normal"}`,
+        className: `flex align-items ${isHeader ? "w-100" : "w-23"} ${isBold ? "bold" : "normal"}`,
         children: children
     }, void 0, false, {
         fileName: "src/components/Row.tsx",

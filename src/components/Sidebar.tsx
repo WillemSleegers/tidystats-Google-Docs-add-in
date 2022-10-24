@@ -1,8 +1,8 @@
 import { useState } from "react"
-import { Tidystats } from "../classes/Tidystats"
 import { Header } from "./Header"
 import { Upload } from "./Upload"
 import { Analyses } from "./Analyses"
+import { Tidystats } from "../classes/Tidystats"
 
 export const Sidebar = () => {
   const [tidystats, setTidystats] = useState<Tidystats>()
