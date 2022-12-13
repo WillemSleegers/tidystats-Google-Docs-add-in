@@ -4,6 +4,7 @@ import { Button, Checkbox } from "./Buttons"
 import { Gear, Plus } from "./Icons"
 import { Statistic, RangedStatistic } from "../classes/Statistic"
 import { formatValue } from "../functions/formatValue"
+import { insertText } from "../functions/gasFunctions"
 
 type StatisticsProps = {
   data: Statistic[]
@@ -76,7 +77,7 @@ export const Statistics = (props: StatisticsProps) => {
   }, [data])
 
   const handleAddClick = () => {
-    console.log("Inserting statistic")
+    insertText("test5")
   }
 
   return (

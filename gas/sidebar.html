@@ -28350,6 +28350,7 @@ var _row = require("./Row");
 var _buttons = require("./Buttons");
 var _icons = require("./Icons");
 var _formatValue = require("../functions/formatValue");
+var _gasFunctions = require("../functions/gasFunctions");
 var _s = $RefreshSig$();
 const Statistics = (props)=>{
     _s();
@@ -28406,7 +28407,7 @@ const Statistics = (props)=>{
         data
     ]);
     const handleAddClick = ()=>{
-        console.log("Inserting statistic");
+        (0, _gasFunctions.insertText)("test5");
     };
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
         children: [
@@ -28420,7 +28421,7 @@ const Statistics = (props)=>{
                         children: "Statistics:"
                     }, void 0, false, {
                         fileName: "src/components/Statistics.tsx",
-                        lineNumber: 85,
+                        lineNumber: 86,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _buttons.Button), {
@@ -28431,12 +28432,12 @@ const Statistics = (props)=>{
                             height: 16
                         }, void 0, false, {
                             fileName: "src/components/Statistics.tsx",
-                            lineNumber: 90,
+                            lineNumber: 91,
                             columnNumber: 11
                         }, undefined)
                     }, void 0, false, {
                         fileName: "src/components/Statistics.tsx",
-                        lineNumber: 89,
+                        lineNumber: 90,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _buttons.Button), {
@@ -28446,18 +28447,18 @@ const Statistics = (props)=>{
                             height: 14
                         }, void 0, false, {
                             fileName: "src/components/Statistics.tsx",
-                            lineNumber: 94,
+                            lineNumber: 95,
                             columnNumber: 11
                         }, undefined)
                     }, void 0, false, {
                         fileName: "src/components/Statistics.tsx",
-                        lineNumber: 93,
+                        lineNumber: 94,
                         columnNumber: 9
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/components/Statistics.tsx",
-                lineNumber: 84,
+                lineNumber: 85,
                 columnNumber: 7
             }, undefined),
             items.map((x, index)=>{
@@ -28471,21 +28472,21 @@ const Statistics = (props)=>{
                             children: x.name
                         }, void 0, false, {
                             fileName: "src/components/Statistics.tsx",
-                            lineNumber: 101,
+                            lineNumber: 102,
                             columnNumber: 13
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _row.RowValue), {
                             children: x.value
                         }, void 0, false, {
                             fileName: "src/components/Statistics.tsx",
-                            lineNumber: 102,
+                            lineNumber: 103,
                             columnNumber: 13
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _buttons.Checkbox), {
                             onClick: handleAddClick
                         }, void 0, false, {
                             fileName: "src/components/Statistics.tsx",
-                            lineNumber: 103,
+                            lineNumber: 104,
                             columnNumber: 13
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _buttons.Button), {
@@ -28495,18 +28496,18 @@ const Statistics = (props)=>{
                                 height: 14
                             }, void 0, false, {
                                 fileName: "src/components/Statistics.tsx",
-                                lineNumber: 105,
+                                lineNumber: 106,
                                 columnNumber: 15
                             }, undefined)
                         }, void 0, false, {
                             fileName: "src/components/Statistics.tsx",
-                            lineNumber: 104,
+                            lineNumber: 105,
                             columnNumber: 13
                         }, undefined)
                     ]
                 }, x.identifier, true, {
                     fileName: "src/components/Statistics.tsx",
-                    lineNumber: 100,
+                    lineNumber: 101,
                     columnNumber: 11
                 }, undefined);
             })
@@ -28523,7 +28524,7 @@ $RefreshReg$(_c, "Statistics");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../functions/formatValue":"k49Gl","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./Icons":"eyY6t","./Row":"BEoMz","./Buttons":"1HBc1"}],"k49Gl":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../functions/formatValue":"k49Gl","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./Icons":"eyY6t","./Row":"BEoMz","./Buttons":"1HBc1","../functions/gasFunctions":"b3isC"}],"k49Gl":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "formatValue", ()=>formatValue);
@@ -28580,6 +28581,14 @@ const formatValue = (x, decimals, bound)=>{
         }
     }
     return value;
+};
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"b3isC":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "insertText", ()=>insertText);
+const insertText = (x)=>{
+    google.script.run.insertText(x);
 };
 
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"35enc":[function(require,module,exports) {
