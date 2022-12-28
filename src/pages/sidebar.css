@@ -1,180 +1,25 @@
 /* Variables */
 
 :root {
-  --spacer-1: 4px;
-  --spacer-2: 8px;
-  --spacer-3: 12px;
-  --spacer-4: 16px;
-  --spacer-5: 20px;
-  --spacer-6: 24px;
-  --spacer-7: 28px;
-  --spacer-8: 32px;
-  --spacer-23: 92px;
-  --gap-1: var(--spacer-1);
-  --gap-2: var(--spacer-2);
-  --gap-3: var(--spacer-3);
   --gray: #f3f2f1;
   --dark-gray: #5f6368;
   /* --blue: #4d90fe; */
   --blue: #3079ed;
   --gray-hover: rgba(0, 0, 0, 0.05);
-  --height-1: var(--spacer-8);
 }
 
 /* Main */
 
+html {
+  font-size: 12px; /* Base size for rem */
+}
+
 body {
   margin: 0;
-}
-
-/* Typography */
-
-.bold {
-  font-weight: bold;
-}
-
-.normal {
-  font-weight: normal;
-}
-
-/* Sizes */
-
-/* Fixed width for the name in certain rows */
-.w-23 {
-  width: var(--spacer-23);
-}
-
-.w-100 {
-  width: 100%;
-}
-
-.h-1 {
-  height: var(--spacer-8);
-}
-
-.min-h-1 {
-  min-height: var(--spacer-8);
-}
-
-/* Margin and padding */
-
-.m-1 {
-  margin: var(--spacer-3);
-}
-
-.mb-1 {
-  margin-bottom: var(--spacer-3) !important;
-}
-
-.ms-1 {
-  margin-left: var(--spacer-1) !important;
-}
-
-.ms-2 {
-  margin-left: var(--spacer-2) !important;
-}
-
-.ms-3 {
-  margin-left: var(--spacer-3) !important;
-}
-
-.ms-4 {
-  margin-left: var(--spacer-4) !important;
-}
-
-.ms-5 {
-  margin-left: var(--spacer-5) !important;
-}
-
-.ms-6 {
-  margin-left: var(--spacer-6) !important;
-}
-
-.ms-7 {
-  margin-left: var(--spacer-7) !important;
-}
-
-.ms-8 {
-  margin-left: var(--spacer-8) !important;
-}
-
-.m-n1 {
-  margin: calc(-1 * var(--spacer-3));
-}
-
-.p-1 {
-  padding: var(--spacer-3);
-}
-
-/* Display */
-
-.display-none {
-  display: none;
-}
-
-.flex {
-  display: flex;
-}
-
-.align-items {
-  align-items: center;
-}
-
-.justify-content {
-  justify-content: center;
-}
-
-.gap-1 {
-  gap: var(--gap-1);
-}
-
-.gap-2 {
-  gap: var(--gap-2);
-}
-
-.gap-3 {
-  gap: var(--gap-3);
-}
-
-.shrink-0 {
-  flex-shrink: 0;
-}
-
-.grow-1 {
-  flex-grow: 1;
-}
-
-/* Colors */
-
-.bg-gray {
-  background: var(--gray);
-}
-
-.hover-gray {
-  background: var(--gray-hover);
-}
-
-.fill-blue {
-  fill: var(--blue);
-}
-
-.fill-dark-gray {
-  fill: var(--dark-gray);
-}
-
-/* Borders */
-
-.border-bottom {
-  border-bottom: solid 1px var(--gray);
 }
 
 /* Buttons */
 
 input[type="checkbox"] {
   margin: 0;
-}
-
-.button-size-1 {
-  width: var(--height-1);
-  height: var(--height-1);
 }

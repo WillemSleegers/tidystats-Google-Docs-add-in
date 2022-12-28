@@ -3,6 +3,7 @@ import { Collapsible } from "./Collapsible"
 import { Groups } from "./Groups"
 import { Statistics } from "./Statistics"
 import { Row, RowName } from "./Row"
+import { updateStatistics } from "../functions/gasFunctions"
 
 type AnalysesProps = {
   data: Analysis[]
@@ -23,10 +24,10 @@ export const Analyses = (props: AnalysesProps) => {
             key={x.identifier}
             open={false}
             header={x.identifier}
-            headerBackground="gray"
+            isPrimary
           >
-            <Row indentationLevel={4} hasBorder={true}>
-              <RowName isHeader={false} isBold={true}>
+            <Row indented hasBorder>
+              <RowName isHeader={false} isBold>
                 Method
               </RowName>
               <div>{x.method}</div>
@@ -36,6 +37,15 @@ export const Analyses = (props: AnalysesProps) => {
           </Collapsible>
         )
       })}
+      <h2>Actions</h2>
+      <div>
+        <button
+          aria-roledescription="Update statistics"
+          onClick={updateStatistics}
+        >
+          Update statistics
+        </button>
+      </div>
     </>
   )
 }

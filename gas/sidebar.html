@@ -6,164 +6,18 @@
     <title>tidystats</title>
     <link rel="stylesheet" href="https://ssl.gstatic.com/docs/script/css/add-ons1.css">
     <style>:root {
-  --spacer-1: 4px;
-  --spacer-2: 8px;
-  --spacer-3: 12px;
-  --spacer-4: 16px;
-  --spacer-5: 20px;
-  --spacer-6: 24px;
-  --spacer-7: 28px;
-  --spacer-8: 32px;
-  --spacer-23: 92px;
-  --gap-1: var(--spacer-1);
-  --gap-2: var(--spacer-2);
-  --gap-3: var(--spacer-3);
   --gray: #f3f2f1;
   --dark-gray: #5f6368;
   --blue: #3079ed;
   --gray-hover: #0000000d;
-  --height-1: var(--spacer-8);
 }
 
-body {
+html {
+  font-size: 12px;
+}
+
+body, input[type="checkbox"] {
   margin: 0;
-}
-
-.bold {
-  font-weight: bold;
-}
-
-.normal {
-  font-weight: normal;
-}
-
-.w-23 {
-  width: var(--spacer-23);
-}
-
-.w-100 {
-  width: 100%;
-}
-
-.h-1 {
-  height: var(--spacer-8);
-}
-
-.min-h-1 {
-  min-height: var(--spacer-8);
-}
-
-.m-1 {
-  margin: var(--spacer-3);
-}
-
-.mb-1 {
-  margin-bottom: var(--spacer-3) !important;
-}
-
-.ms-1 {
-  margin-left: var(--spacer-1) !important;
-}
-
-.ms-2 {
-  margin-left: var(--spacer-2) !important;
-}
-
-.ms-3 {
-  margin-left: var(--spacer-3) !important;
-}
-
-.ms-4 {
-  margin-left: var(--spacer-4) !important;
-}
-
-.ms-5 {
-  margin-left: var(--spacer-5) !important;
-}
-
-.ms-6 {
-  margin-left: var(--spacer-6) !important;
-}
-
-.ms-7 {
-  margin-left: var(--spacer-7) !important;
-}
-
-.ms-8 {
-  margin-left: var(--spacer-8) !important;
-}
-
-.m-n1 {
-  margin: calc(-1 * var(--spacer-3));
-}
-
-.p-1 {
-  padding: var(--spacer-3);
-}
-
-.display-none {
-  display: none;
-}
-
-.flex {
-  display: flex;
-}
-
-.align-items {
-  align-items: center;
-}
-
-.justify-content {
-  justify-content: center;
-}
-
-.gap-1 {
-  gap: var(--gap-1);
-}
-
-.gap-2 {
-  gap: var(--gap-2);
-}
-
-.gap-3 {
-  gap: var(--gap-3);
-}
-
-.shrink-0 {
-  flex-shrink: 0;
-}
-
-.grow-1 {
-  flex-grow: 1;
-}
-
-.bg-gray {
-  background: var(--gray);
-}
-
-.hover-gray {
-  background: var(--gray-hover);
-}
-
-.fill-blue {
-  fill: var(--blue);
-}
-
-.fill-dark-gray {
-  fill: var(--dark-gray);
-}
-
-.border-bottom {
-  border-bottom: solid 1px var(--gray);
-}
-
-input[type="checkbox"] {
-  margin: 0;
-}
-
-.button-size-1 {
-  width: var(--height-1);
-  height: var(--height-1);
 }
 
 
@@ -27304,588 +27158,74 @@ $RefreshReg$(_c, "Sidebar");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","./Upload":"kDXzA","./Analyses":"9hsWd","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./Header":"35enc"}],"kDXzA":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$a38c = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","./Header":"35enc","./Upload":"kDXzA","./Analyses":"9hsWd","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"35enc":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$d5a6 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$a38c.prelude(module);
+$parcel$ReactRefreshHelpers$d5a6.prelude(module);
 
 try {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "Upload", ()=>Upload);
+parcelHelpers.export(exports, "Header", ()=>Header);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
-var _react = require("react");
-var _tidystats = require("../classes/Tidystats");
-var _s = $RefreshSig$();
-const Upload = (props)=>{
-    _s();
-    const { setTidystats  } = props;
-    const fileInput = (0, _react.useRef)(null);
-    const hiddenFileInput = (0, _react.useRef)(null);
-    const [showErrorMessage, setShowErrorMessage] = (0, _react.useState)(false);
-    const handleClick = ()=>{
-        if (null !== hiddenFileInput.current) {
-            hiddenFileInput.current.click();
-            hiddenFileInput.current.value = "" // Reset the value so a new file can be selected
-            ;
-        }
-    };
-    const handleChange = (event)=>{
-        if (event.target.files) {
-            const file = event.target.files[0];
-            fileInput.current.innerHTML = file.name;
-            if (file.type === "application/json") {
-                const reader = new FileReader();
-                reader.onload = ()=>{
-                    const text = reader.result;
-                    const data = JSON.parse(text);
-                    const tidystats = new (0, _tidystats.Tidystats)(data);
-                    setTidystats(tidystats);
-                };
-                reader.readAsText(file);
-                setShowErrorMessage(false);
-            } else {
-                setShowErrorMessage(true);
-                setTidystats(null);
-            }
-        }
-    };
+var _icons = require("./Icons");
+const Header = ()=>{
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        className: "upload",
+        style: {
+            marginTop: "-1rem",
+            marginRight: "-1rem",
+            marginBottom: "1rem",
+            marginLeft: "-1rem",
+            padding: "1rem",
+            background: "var(--gray)",
+            display: "flex",
+            gap: "1rem",
+            justifyContent: "center",
+            alignItems: "center"
+        },
         children: [
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                id: "fileUpload",
-                className: "action",
-                ref: fileInput,
-                "aria-roledescription": "Upload/cancel file",
-                onClick: handleClick,
-                children: "Upload statistics"
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _icons.Logo), {
+                width: 42,
+                height: 42
             }, void 0, false, {
-                fileName: "src/components/Upload.tsx",
-                lineNumber: 49,
+                fileName: "src/components/Header.tsx",
+                lineNumber: 19,
                 columnNumber: 7
             }, undefined),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
-                className: "display-none",
-                type: "file",
-                accept: "application/json",
-                ref: hiddenFileInput,
-                onChange: handleChange,
-                onClick: handleClick
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
+                style: {
+                    fontSize: "2rem"
+                },
+                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("b", {
+                    children: "tidystats"
+                }, void 0, false, {
+                    fileName: "src/components/Header.tsx",
+                    lineNumber: 21,
+                    columnNumber: 9
+                }, undefined)
             }, void 0, false, {
-                fileName: "src/components/Upload.tsx",
-                lineNumber: 58,
+                fileName: "src/components/Header.tsx",
+                lineNumber: 20,
                 columnNumber: 7
-            }, undefined),
-            showErrorMessage && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                className: "error",
-                children: "File must be a tidystats JSON file."
-            }, void 0, false, {
-                fileName: "src/components/Upload.tsx",
-                lineNumber: 67,
-                columnNumber: 9
             }, undefined)
         ]
     }, void 0, true, {
-        fileName: "src/components/Upload.tsx",
-        lineNumber: 48,
+        fileName: "src/components/Header.tsx",
+        lineNumber: 5,
         columnNumber: 5
     }, undefined);
 };
-_s(Upload, "QsSebDLVqcG7/4ydE38u9S89mAY=");
-_c = Upload;
+_c = Header;
 var _c;
-$RefreshReg$(_c, "Upload");
+$RefreshReg$(_c, "Header");
 
-  $parcel$ReactRefreshHelpers$a38c.postlude(module);
+  $parcel$ReactRefreshHelpers$d5a6.postlude(module);
 } finally {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../classes/Tidystats":"fiv0m","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"fiv0m":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "Tidystats", ()=>Tidystats);
-var _analysis = require("./Analysis");
-class Tidystats {
-    constructor(data){
-        let analyses = [];
-        for (let key of Object.keys(data)){
-            const analysis = new (0, _analysis.Analysis)(key, data[key]);
-            analyses.push(analysis);
-        }
-        this.analyses = analyses;
-    }
-    findStatistic(id) {
-        // Split the identifier up in the separate components
-        const components = id.split("$");
-        // Check if the statistic is a lower or upper bound statistic
-        // If so, remove the last component
-        if (components[components.length - 1].match(/lower|upper/)) components.pop();
-        // Split up the components into the identifier, the statistics name, and everything else as group names
-        const identifier = components[0];
-        const statisticName = components[components.length - 1];
-        const groupNames = components.slice(1, components.length - 1);
-        // Find the analysis based on the identifier
-        const analysis = this.analyses.find((x)=>x.identifier === identifier);
-        // Find the statistics
-        let statistic, statistics;
-        if (groupNames.length) {
-            let groups, group;
-            groups = analysis?.groups;
-            for(let i = 0; i < groupNames.length; i++){
-                group = groups?.find((x)=>x.name === groupNames[i]);
-                if (i < groupNames.length) {
-                    group = groups?.find((x)=>x.name === groupNames[i]);
-                    groups = group?.groups;
-                }
-            }
-            statistics = group?.statistics;
-        } else statistics = analysis?.statistics;
-        // Find the statistic
-        statistic = statistics?.find((x)=>x.name === statisticName);
-        return statistic;
-    }
-}
-
-},{"./Analysis":"dt6Cb","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"dt6Cb":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "Analysis", ()=>Analysis);
-var _statistic = require("./Statistic");
-var _group = require("./Group");
-class Analysis {
-    constructor(identifier, data){
-        this.identifier = identifier;
-        this.method = data.method;
-        if (data.statistics) {
-            const statistics = [];
-            for (let datum of data.statistics){
-                let statistic;
-                if ("level" in datum) statistic = new (0, _statistic.RangedStatistic)(this.identifier, datum);
-                else statistic = new (0, _statistic.Statistic)(this.identifier, datum);
-                statistics.push(statistic);
-            }
-            this.statistics = statistics;
-        }
-        if (data.groups) {
-            const groups = [];
-            for (let datum1 of data.groups){
-                const group = new (0, _group.Group)(this.identifier, datum1);
-                groups.push(group);
-            }
-            this.groups = groups;
-        }
-    }
-}
-
-},{"./Statistic":"gGked","./Group":"fxTRQ","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gGked":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "Statistic", ()=>Statistic);
-parcelHelpers.export(exports, "RangedStatistic", ()=>RangedStatistic);
-class Statistic {
-    constructor(identifier, data){
-        this.name = data.name;
-        this.identifier = identifier + "$" + this.name;
-        this.symbol = data.symbol;
-        this.subscript = data.subscript;
-        this.value = data.value;
-    }
-}
-class RangedStatistic extends Statistic {
-    constructor(identifier, data){
-        super(identifier, data);
-        this.interval = data.interval;
-        this.level = data.level;
-        this.lower = data.lower;
-        this.upper = data.upper;
-    }
-}
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gkKU3":[function(require,module,exports) {
-exports.interopDefault = function(a) {
-    return a && a.__esModule ? a : {
-        default: a
-    };
-};
-exports.defineInteropFlag = function(a) {
-    Object.defineProperty(a, "__esModule", {
-        value: true
-    });
-};
-exports.exportAll = function(source, dest) {
-    Object.keys(source).forEach(function(key) {
-        if (key === "default" || key === "__esModule" || dest.hasOwnProperty(key)) return;
-        Object.defineProperty(dest, key, {
-            enumerable: true,
-            get: function() {
-                return source[key];
-            }
-        });
-    });
-    return dest;
-};
-exports.export = function(dest, destName, get) {
-    Object.defineProperty(dest, destName, {
-        enumerable: true,
-        get: get
-    });
-};
-
-},{}],"fxTRQ":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "Group", ()=>Group);
-var _statistic = require("./Statistic");
-class Group {
-    constructor(identifier, data){
-        this.name = data.name;
-        this.identifier = identifier + "$" + this.name;
-        if (data.statistics) {
-            const statistics = [];
-            for (let datum of data.statistics){
-                let statistic;
-                if ("level" in datum) statistic = new (0, _statistic.RangedStatistic)(this.identifier, datum);
-                else statistic = new (0, _statistic.Statistic)(this.identifier, datum);
-                statistics.push(statistic);
-            }
-            this.statistics = statistics;
-        }
-        if (data.groups) {
-            const groups = [];
-            for (let datum1 of data.groups){
-                const group = new Group(this.identifier, datum1);
-                groups.push(group);
-            }
-            this.groups = groups;
-        }
-    }
-}
-
-},{"./Statistic":"gGked","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"km3Ru":[function(require,module,exports) {
-"use strict";
-var Refresh = require("react-refresh/runtime");
-function debounce(func, delay) {
-    var args;
-    var timeout = undefined;
-    return function(args) {
-        clearTimeout(timeout);
-        timeout = setTimeout(function() {
-            timeout = undefined;
-            func.call(null, args);
-        }, delay);
-    };
-}
-var enqueueUpdate = debounce(function() {
-    Refresh.performReactRefresh();
-}, 30); // Everthing below is either adapted or copied from
-// https://github.com/facebook/metro/blob/61de16bd1edd7e738dd0311c89555a644023ab2d/packages/metro/src/lib/polyfills/require.js
-// MIT License - Copyright (c) Facebook, Inc. and its affiliates.
-module.exports.prelude = function(module1) {
-    window.$RefreshReg$ = function(type, id) {
-        Refresh.register(type, module1.id + " " + id);
-    };
-    window.$RefreshSig$ = Refresh.createSignatureFunctionForTransform;
-};
-module.exports.postlude = function(module1) {
-    if (isReactRefreshBoundary(module1.exports)) {
-        registerExportsForReactRefresh(module1);
-        if (module1.hot) {
-            module1.hot.dispose(function(data) {
-                if (Refresh.hasUnrecoverableErrors()) window.location.reload();
-                data.prevExports = module1.exports;
-            });
-            module1.hot.accept(function(getParents) {
-                var prevExports = module1.hot.data.prevExports;
-                var nextExports = module1.exports; // Since we just executed the code for it, it's possible
-                // that the new exports make it ineligible for being a boundary.
-                var isNoLongerABoundary = !isReactRefreshBoundary(nextExports); // It can also become ineligible if its exports are incompatible
-                // with the previous exports.
-                // For example, if you add/remove/change exports, we'll want
-                // to re-execute the importing modules, and force those components
-                // to re-render. Similarly, if you convert a class component
-                // to a function, we want to invalidate the boundary.
-                var didInvalidate = shouldInvalidateReactRefreshBoundary(prevExports, nextExports);
-                if (isNoLongerABoundary || didInvalidate) {
-                    // We'll be conservative. The only case in which we won't do a full
-                    // reload is if all parent modules are also refresh boundaries.
-                    // In that case we'll add them to the current queue.
-                    var parents = getParents();
-                    if (parents.length === 0) {
-                        // Looks like we bubbled to the root. Can't recover from that.
-                        window.location.reload();
-                        return;
-                    }
-                    return parents;
-                }
-                enqueueUpdate();
-            });
-        }
-    }
-};
-function isReactRefreshBoundary(exports) {
-    if (Refresh.isLikelyComponentType(exports)) return true;
-    if (exports == null || typeof exports !== "object") // Exit if we can't iterate over exports.
-    return false;
-    var hasExports = false;
-    var areAllExportsComponents = true;
-    let isESM = "__esModule" in exports;
-    for(var key in exports){
-        hasExports = true;
-        if (key === "__esModule") continue;
-        var desc = Object.getOwnPropertyDescriptor(exports, key);
-        if (desc && desc.get && !isESM) // Don't invoke getters for CJS as they may have side effects.
-        return false;
-        var exportValue = exports[key];
-        if (!Refresh.isLikelyComponentType(exportValue)) areAllExportsComponents = false;
-    }
-    return hasExports && areAllExportsComponents;
-}
-function shouldInvalidateReactRefreshBoundary(prevExports, nextExports) {
-    var prevSignature = getRefreshBoundarySignature(prevExports);
-    var nextSignature = getRefreshBoundarySignature(nextExports);
-    if (prevSignature.length !== nextSignature.length) return true;
-    for(var i = 0; i < nextSignature.length; i++){
-        if (prevSignature[i] !== nextSignature[i]) return true;
-    }
-    return false;
-} // When this signature changes, it's unsafe to stop at this refresh boundary.
-function getRefreshBoundarySignature(exports) {
-    var signature = [];
-    signature.push(Refresh.getFamilyByType(exports));
-    if (exports == null || typeof exports !== "object") // Exit if we can't iterate over exports.
-    // (This is important for legacy environments.)
-    return signature;
-    let isESM = "__esModule" in exports;
-    for(var key in exports){
-        if (key === "__esModule") continue;
-        var desc = Object.getOwnPropertyDescriptor(exports, key);
-        if (desc && desc.get && !isESM) continue;
-        var exportValue = exports[key];
-        signature.push(key);
-        signature.push(Refresh.getFamilyByType(exportValue));
-    }
-    return signature;
-}
-function registerExportsForReactRefresh(module1) {
-    var exports = module1.exports, id = module1.id;
-    Refresh.register(exports, id + " %exports%");
-    if (exports == null || typeof exports !== "object") // Exit if we can't iterate over exports.
-    // (This is important for legacy environments.)
-    return;
-    let isESM = "__esModule" in exports;
-    for(var key in exports){
-        var desc = Object.getOwnPropertyDescriptor(exports, key);
-        if (desc && desc.get && !isESM) continue;
-        var exportValue = exports[key];
-        Refresh.register(exportValue, id + " %exports% " + key);
-    }
-}
-
-},{"react-refresh/runtime":"786KC"}],"9hsWd":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$ca0e = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
-var prevRefreshReg = window.$RefreshReg$;
-var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$ca0e.prelude(module);
-
-try {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "Analyses", ()=>Analyses);
-var _jsxDevRuntime = require("react/jsx-dev-runtime");
-var _collapsible = require("./Collapsible");
-var _groups = require("./Groups");
-var _statistics = require("./Statistics");
-var _row = require("./Row");
-const Analyses = (props)=>{
-    const { data  } = props;
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
-        children: [
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
-                children: "Analyses"
-            }, void 0, false, {
-                fileName: "src/components/Analyses.tsx",
-                lineNumber: 16,
-                columnNumber: 7
-            }, undefined),
-            data.map((x)=>{
-                const statistics = x.statistics;
-                const groups = x.groups;
-                return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _collapsible.Collapsible), {
-                    open: false,
-                    header: x.identifier,
-                    headerBackground: "gray",
-                    children: [
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _row.Row), {
-                            indentationLevel: 4,
-                            hasBorder: true,
-                            children: [
-                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _row.RowName), {
-                                    isHeader: false,
-                                    isBold: true,
-                                    children: "Method"
-                                }, void 0, false, {
-                                    fileName: "src/components/Analyses.tsx",
-                                    lineNumber: 29,
-                                    columnNumber: 15
-                                }, undefined),
-                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                    children: x.method
-                                }, void 0, false, {
-                                    fileName: "src/components/Analyses.tsx",
-                                    lineNumber: 32,
-                                    columnNumber: 15
-                                }, undefined)
-                            ]
-                        }, void 0, true, {
-                            fileName: "src/components/Analyses.tsx",
-                            lineNumber: 28,
-                            columnNumber: 13
-                        }, undefined),
-                        statistics && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _statistics.Statistics), {
-                            data: statistics
-                        }, void 0, false, {
-                            fileName: "src/components/Analyses.tsx",
-                            lineNumber: 34,
-                            columnNumber: 28
-                        }, undefined),
-                        groups && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _groups.Groups), {
-                            data: groups
-                        }, void 0, false, {
-                            fileName: "src/components/Analyses.tsx",
-                            lineNumber: 35,
-                            columnNumber: 24
-                        }, undefined)
-                    ]
-                }, x.identifier, true, {
-                    fileName: "src/components/Analyses.tsx",
-                    lineNumber: 22,
-                    columnNumber: 11
-                }, undefined);
-            })
-        ]
-    }, void 0, true);
-};
-_c = Analyses;
-var _c;
-$RefreshReg$(_c, "Analyses");
-
-  $parcel$ReactRefreshHelpers$ca0e.postlude(module);
-} finally {
-  window.$RefreshReg$ = prevRefreshReg;
-  window.$RefreshSig$ = prevRefreshSig;
-}
-},{"react/jsx-dev-runtime":"iTorj","./Collapsible":"98sFe","./Groups":"96v6N","./Statistics":"dg00I","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./Row":"BEoMz"}],"98sFe":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$d73a = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
-var prevRefreshReg = window.$RefreshReg$;
-var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$d73a.prelude(module);
-
-try {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "Collapsible", ()=>Collapsible);
-var _jsxDevRuntime = require("react/jsx-dev-runtime");
-var _react = require("react");
-var _buttons = require("./Buttons");
-var _row = require("./Row");
-var _icons = require("./Icons");
-var _s = $RefreshSig$();
-const Collapsible = (props)=>{
-    _s();
-    const { header , headerBackground , handleInsertClick , open , children  } = props;
-    const [isOpen, setIsOpen] = (0, _react.useState)(open);
-    const toggleOpen = ()=>{
-        setIsOpen((prev)=>!prev);
-    };
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
-        children: [
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _row.Row), {
-                background: headerBackground,
-                children: [
-                    !isOpen && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _buttons.Button), {
-                        onClick: toggleOpen,
-                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _icons.ChevronRight), {
-                            width: 8,
-                            height: 12
-                        }, void 0, false, {
-                            fileName: "src/components/Collapsible.tsx",
-                            lineNumber: 27,
-                            columnNumber: 13
-                        }, undefined)
-                    }, void 0, false, {
-                        fileName: "src/components/Collapsible.tsx",
-                        lineNumber: 26,
-                        columnNumber: 11
-                    }, undefined),
-                    isOpen && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _buttons.Button), {
-                        onClick: toggleOpen,
-                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _icons.ChevronDown), {
-                            width: 12,
-                            height: 8,
-                            className: "fill-blue"
-                        }, void 0, false, {
-                            fileName: "src/components/Collapsible.tsx",
-                            lineNumber: 33,
-                            columnNumber: 13
-                        }, undefined)
-                    }, void 0, false, {
-                        fileName: "src/components/Collapsible.tsx",
-                        lineNumber: 32,
-                        columnNumber: 11
-                    }, undefined),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _row.RowName), {
-                        isHeader: true,
-                        children: header
-                    }, void 0, false, {
-                        fileName: "src/components/Collapsible.tsx",
-                        lineNumber: 37,
-                        columnNumber: 9
-                    }, undefined),
-                    handleInsertClick && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _buttons.Button), {
-                        onClick: handleInsertClick,
-                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _icons.Table), {
-                            width: 14,
-                            height: 14
-                        }, void 0, false, {
-                            fileName: "src/components/Collapsible.tsx",
-                            lineNumber: 41,
-                            columnNumber: 13
-                        }, undefined)
-                    }, void 0, false, {
-                        fileName: "src/components/Collapsible.tsx",
-                        lineNumber: 40,
-                        columnNumber: 11
-                    }, undefined)
-                ]
-            }, void 0, true, {
-                fileName: "src/components/Collapsible.tsx",
-                lineNumber: 24,
-                columnNumber: 7
-            }, undefined),
-            isOpen && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                children: children
-            }, void 0, false, {
-                fileName: "src/components/Collapsible.tsx",
-                lineNumber: 45,
-                columnNumber: 18
-            }, undefined)
-        ]
-    }, void 0, true);
-};
-_s(Collapsible, "VL896lenp0EBD8yl2XSBtUW3qhI=");
-_c = Collapsible;
-var _c;
-$RefreshReg$(_c, "Collapsible");
-
-  $parcel$ReactRefreshHelpers$d73a.postlude(module);
-} finally {
-  window.$RefreshReg$ = prevRefreshReg;
-  window.$RefreshSig$ = prevRefreshSig;
-}
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./Icons":"eyY6t","./Row":"BEoMz","./Buttons":"1HBc1"}],"eyY6t":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","./Icons":"eyY6t","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"eyY6t":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$5e24 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -28012,11 +27352,10 @@ const Logo = (props)=>{
 };
 _c = Logo;
 const ChevronRight = (props)=>{
-    const { width , height , className  } = props;
+    const { width , height  } = props;
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("svg", {
         width: width,
         height: height,
-        className: className,
         viewBox: "0 0 8 12",
         xmlns: "http://www.w3.org/2000/svg",
         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("path", {
@@ -28025,22 +27364,21 @@ const ChevronRight = (props)=>{
             d: "M 1.415 0 L 0 1.415 L 4.585 6 L 0 10.585 L 1.415 12 L 7.415 6 Z"
         }, void 0, false, {
             fileName: "src/components/Icons.tsx",
-            lineNumber: 91,
+            lineNumber: 89,
             columnNumber: 7
         }, undefined)
     }, void 0, false, {
         fileName: "src/components/Icons.tsx",
-        lineNumber: 84,
+        lineNumber: 83,
         columnNumber: 5
     }, undefined);
 };
 _c1 = ChevronRight;
 const ChevronDown = (props)=>{
-    const { width , height , className  } = props;
+    const { width , height  } = props;
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("svg", {
         width: width,
         height: height,
-        className: className,
         viewBox: "0 0 12 8",
         xmlns: "http://www.w3.org/2000/svg",
         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("path", {
@@ -28049,22 +27387,22 @@ const ChevronDown = (props)=>{
             d: "M 0 2 L 1.5 0.5 L 6 5 L 10.5 0.5 L 12 2 L 6 8 Z"
         }, void 0, false, {
             fileName: "src/components/Icons.tsx",
-            lineNumber: 117,
+            lineNumber: 113,
             columnNumber: 7
         }, undefined)
     }, void 0, false, {
         fileName: "src/components/Icons.tsx",
-        lineNumber: 110,
+        lineNumber: 107,
         columnNumber: 5
     }, undefined);
 };
 _c2 = ChevronDown;
 const Gear = (props)=>{
-    const { width , height , className  } = props;
+    const { width , height  } = props;
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("svg", {
         width: width,
         height: height,
-        className: className,
+        fill: "#3079ed",
         viewBox: "0 0 16 16",
         xmlns: "http://www.w3.org/2000/svg",
         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("path", {
@@ -28073,22 +27411,21 @@ const Gear = (props)=>{
             d: "M 14.007465 8.784 C 14.039465 8.528 14.063465 8.272 14.063465 8 C 14.063465 7.728001 14.039465 7.472 14.007465 7.216 L 15.695465 5.896 C 15.847466 5.776 15.887466 5.559999 15.791466 5.384 L 14.191465 2.616 C 14.095466 2.440001 13.879465 2.375999 13.703465 2.440001 L 11.711465 3.24 C 11.295465 2.92 10.847466 2.656 10.359466 2.456 L 10.055466 0.336 C 10.031466 0.144 9.863465 0 9.663465 0 L 6.463465 0 C 6.263465 0 6.095465 0.144 6.071465 0.336 L 5.767465 2.456 C 5.279465 2.656 4.831465 2.927999 4.415465 3.24 L 2.423465 2.440001 C 2.239465 2.368 2.031465 2.440001 1.935465 2.616 L 0.335465 5.384 C 0.231465 5.559999 0.279465 5.776 0.431465 5.896 L 2.119465 7.216 C 2.087465 7.472 2.063465 7.736 2.063465 8 C 2.063465 8.264 2.087465 8.528 2.119465 8.784 L 0.431465 10.104 C 0.279465 10.224 0.239465 10.44 0.335465 10.616 L 1.935465 13.384 C 2.031465 13.56 2.247465 13.624 2.423465 13.56 L 4.415465 12.76 C 4.831465 13.08 5.279465 13.344 5.767465 13.544 L 6.071465 15.664 C 6.095465 15.856 6.263465 16 6.463465 16 L 9.663465 16 C 9.863465 16 10.031466 15.856 10.055466 15.664 L 10.359466 13.544 C 10.847466 13.344 11.295465 13.072 11.711465 12.76 L 13.703465 13.56 C 13.887465 13.632 14.095466 13.56 14.191465 13.384 L 15.791466 10.616 C 15.887466 10.44 15.847466 10.224 15.695465 10.104 L 14.007465 8.784 L 14.007465 8.784 Z M 8 11 C 6.345714 11 5 9.654285 5 8 C 5 6.345715 6.345714 5 8 5 C 9.654285 5 11 6.345715 11 8 C 11 9.654285 9.654285 11 8 11 L 8 11 Z"
         }, void 0, false, {
             fileName: "src/components/Icons.tsx",
-            lineNumber: 143,
+            lineNumber: 138,
             columnNumber: 7
         }, undefined)
     }, void 0, false, {
         fileName: "src/components/Icons.tsx",
-        lineNumber: 136,
+        lineNumber: 131,
         columnNumber: 5
     }, undefined);
 };
 _c3 = Gear;
 const Plus = (props)=>{
-    const { width , height , className  } = props;
+    const { width , height  } = props;
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("svg", {
         width: width,
         height: height,
-        className: className,
         viewBox: "0 0 16 16",
         xmlns: "http://www.w3.org/2000/svg",
         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("path", {
@@ -28097,22 +27434,21 @@ const Plus = (props)=>{
             d: "M 16 9 L 9 9 L 9 16 L 7 16 L 7 9 L 0 9 L 0 7 L 7 7 L 7 0 L 9 0 L 9 7 L 16 7 L 16 9 Z"
         }, void 0, false, {
             fileName: "src/components/Icons.tsx",
-            lineNumber: 169,
+            lineNumber: 162,
             columnNumber: 7
         }, undefined)
     }, void 0, false, {
         fileName: "src/components/Icons.tsx",
-        lineNumber: 162,
+        lineNumber: 156,
         columnNumber: 5
     }, undefined);
 };
 _c4 = Plus;
 const Table = (props)=>{
-    const { width , height , className  } = props;
+    const { width , height  } = props;
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("svg", {
         width: width,
         height: height,
-        className: className,
         viewBox: "0 0 14 14",
         xmlns: "http://www.w3.org/2000/svg",
         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("path", {
@@ -28121,12 +27457,12 @@ const Table = (props)=>{
             d: "M 12.5 0 L 1.5 0 C 0.67 0 0 0.67 0 1.5 L 0 12.5 C 0 13.33 0.67 14 1.5 14 L 12.5 14 C 13.33 14 14 13.33 14 12.5 L 14 1.5 C 14 0.67 13.33 0 12.5 0 Z M 1.5 5.25 L 4.17 5.25 L 4.17 12.5 L 1.5 12.5 L 1.5 5.25 Z M 8.33 5.25 L 8.33 12.5 L 5.67 12.5 L 5.67 5.25 L 8.33 5.25 Z M 12.5 12.5 L 9.83 12.5 L 9.83 5.25 L 12.5 5.25 L 12.5 12.5 Z M 12.5 3.75 L 1.5 3.75 L 1.5 1.5 L 12.5 1.5 L 12.5 3.75 Z"
         }, void 0, false, {
             fileName: "src/components/Icons.tsx",
-            lineNumber: 195,
+            lineNumber: 186,
             columnNumber: 7
         }, undefined)
     }, void 0, false, {
         fileName: "src/components/Icons.tsx",
-        lineNumber: 188,
+        lineNumber: 180,
         columnNumber: 5
     }, undefined);
 };
@@ -28144,66 +27480,622 @@ $RefreshReg$(_c5, "Table");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"BEoMz":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$2aca = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"gkKU3":[function(require,module,exports) {
+exports.interopDefault = function(a) {
+    return a && a.__esModule ? a : {
+        default: a
+    };
+};
+exports.defineInteropFlag = function(a) {
+    Object.defineProperty(a, "__esModule", {
+        value: true
+    });
+};
+exports.exportAll = function(source, dest) {
+    Object.keys(source).forEach(function(key) {
+        if (key === "default" || key === "__esModule" || dest.hasOwnProperty(key)) return;
+        Object.defineProperty(dest, key, {
+            enumerable: true,
+            get: function() {
+                return source[key];
+            }
+        });
+    });
+    return dest;
+};
+exports.export = function(dest, destName, get) {
+    Object.defineProperty(dest, destName, {
+        enumerable: true,
+        get: get
+    });
+};
+
+},{}],"km3Ru":[function(require,module,exports) {
+"use strict";
+var Refresh = require("react-refresh/runtime");
+function debounce(func, delay) {
+    var args;
+    var timeout = undefined;
+    return function(args) {
+        clearTimeout(timeout);
+        timeout = setTimeout(function() {
+            timeout = undefined;
+            func.call(null, args);
+        }, delay);
+    };
+}
+var enqueueUpdate = debounce(function() {
+    Refresh.performReactRefresh();
+}, 30); // Everthing below is either adapted or copied from
+// https://github.com/facebook/metro/blob/61de16bd1edd7e738dd0311c89555a644023ab2d/packages/metro/src/lib/polyfills/require.js
+// MIT License - Copyright (c) Facebook, Inc. and its affiliates.
+module.exports.prelude = function(module1) {
+    window.$RefreshReg$ = function(type, id) {
+        Refresh.register(type, module1.id + " " + id);
+    };
+    window.$RefreshSig$ = Refresh.createSignatureFunctionForTransform;
+};
+module.exports.postlude = function(module1) {
+    if (isReactRefreshBoundary(module1.exports)) {
+        registerExportsForReactRefresh(module1);
+        if (module1.hot) {
+            module1.hot.dispose(function(data) {
+                if (Refresh.hasUnrecoverableErrors()) window.location.reload();
+                data.prevExports = module1.exports;
+            });
+            module1.hot.accept(function(getParents) {
+                var prevExports = module1.hot.data.prevExports;
+                var nextExports = module1.exports; // Since we just executed the code for it, it's possible
+                // that the new exports make it ineligible for being a boundary.
+                var isNoLongerABoundary = !isReactRefreshBoundary(nextExports); // It can also become ineligible if its exports are incompatible
+                // with the previous exports.
+                // For example, if you add/remove/change exports, we'll want
+                // to re-execute the importing modules, and force those components
+                // to re-render. Similarly, if you convert a class component
+                // to a function, we want to invalidate the boundary.
+                var didInvalidate = shouldInvalidateReactRefreshBoundary(prevExports, nextExports);
+                if (isNoLongerABoundary || didInvalidate) {
+                    // We'll be conservative. The only case in which we won't do a full
+                    // reload is if all parent modules are also refresh boundaries.
+                    // In that case we'll add them to the current queue.
+                    var parents = getParents();
+                    if (parents.length === 0) {
+                        // Looks like we bubbled to the root. Can't recover from that.
+                        window.location.reload();
+                        return;
+                    }
+                    return parents;
+                }
+                enqueueUpdate();
+            });
+        }
+    }
+};
+function isReactRefreshBoundary(exports) {
+    if (Refresh.isLikelyComponentType(exports)) return true;
+    if (exports == null || typeof exports !== "object") // Exit if we can't iterate over exports.
+    return false;
+    var hasExports = false;
+    var areAllExportsComponents = true;
+    let isESM = "__esModule" in exports;
+    for(var key in exports){
+        hasExports = true;
+        if (key === "__esModule") continue;
+        var desc = Object.getOwnPropertyDescriptor(exports, key);
+        if (desc && desc.get && !isESM) // Don't invoke getters for CJS as they may have side effects.
+        return false;
+        var exportValue = exports[key];
+        if (!Refresh.isLikelyComponentType(exportValue)) areAllExportsComponents = false;
+    }
+    return hasExports && areAllExportsComponents;
+}
+function shouldInvalidateReactRefreshBoundary(prevExports, nextExports) {
+    var prevSignature = getRefreshBoundarySignature(prevExports);
+    var nextSignature = getRefreshBoundarySignature(nextExports);
+    if (prevSignature.length !== nextSignature.length) return true;
+    for(var i = 0; i < nextSignature.length; i++){
+        if (prevSignature[i] !== nextSignature[i]) return true;
+    }
+    return false;
+} // When this signature changes, it's unsafe to stop at this refresh boundary.
+function getRefreshBoundarySignature(exports) {
+    var signature = [];
+    signature.push(Refresh.getFamilyByType(exports));
+    if (exports == null || typeof exports !== "object") // Exit if we can't iterate over exports.
+    // (This is important for legacy environments.)
+    return signature;
+    let isESM = "__esModule" in exports;
+    for(var key in exports){
+        if (key === "__esModule") continue;
+        var desc = Object.getOwnPropertyDescriptor(exports, key);
+        if (desc && desc.get && !isESM) continue;
+        var exportValue = exports[key];
+        signature.push(key);
+        signature.push(Refresh.getFamilyByType(exportValue));
+    }
+    return signature;
+}
+function registerExportsForReactRefresh(module1) {
+    var exports = module1.exports, id = module1.id;
+    Refresh.register(exports, id + " %exports%");
+    if (exports == null || typeof exports !== "object") // Exit if we can't iterate over exports.
+    // (This is important for legacy environments.)
+    return;
+    let isESM = "__esModule" in exports;
+    for(var key in exports){
+        var desc = Object.getOwnPropertyDescriptor(exports, key);
+        if (desc && desc.get && !isESM) continue;
+        var exportValue = exports[key];
+        Refresh.register(exportValue, id + " %exports% " + key);
+    }
+}
+
+},{"react-refresh/runtime":"786KC"}],"kDXzA":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$a38c = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$2aca.prelude(module);
+$parcel$ReactRefreshHelpers$a38c.prelude(module);
 
 try {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "Row", ()=>Row);
-parcelHelpers.export(exports, "RowName", ()=>RowName);
-parcelHelpers.export(exports, "RowValue", ()=>RowValue);
+parcelHelpers.export(exports, "Upload", ()=>Upload);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
-const Row = (props)=>{
-    const { indentationLevel , background , hasBorder , children  } = props;
+var _react = require("react");
+var _tidystats = require("../classes/Tidystats");
+var _s = $RefreshSig$();
+const Upload = (props)=>{
+    _s();
+    const { setTidystats  } = props;
+    const fileInput = (0, _react.useRef)(null);
+    const hiddenFileInput = (0, _react.useRef)(null);
+    const [showErrorMessage, setShowErrorMessage] = (0, _react.useState)(false);
+    const handleClick = ()=>{
+        if (null !== hiddenFileInput.current) {
+            hiddenFileInput.current.click();
+            hiddenFileInput.current.value = "" // Reset the value so a new file can be selected
+            ;
+        }
+    };
+    const handleChange = (event)=>{
+        if (event.target.files) {
+            const file = event.target.files[0];
+            fileInput.current.innerHTML = file.name;
+            if (file.type === "application/json") {
+                const reader = new FileReader();
+                reader.onload = ()=>{
+                    const text = reader.result;
+                    const data = JSON.parse(text);
+                    const tidystats = new (0, _tidystats.Tidystats)(data);
+                    setTidystats(tidystats);
+                };
+                reader.readAsText(file);
+                setShowErrorMessage(false);
+            } else {
+                setShowErrorMessage(true);
+                setTidystats(null);
+            }
+        }
+    };
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        className: `min-h-6 flex align-items ms-${indentationLevel} bg-${background} ${hasBorder ? "border-bottom" : ""}`,
-        children: children
-    }, void 0, false, {
-        fileName: "src/components/Row.tsx",
-        lineNumber: 14,
+        className: "upload",
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                id: "fileUpload",
+                className: "action",
+                ref: fileInput,
+                "aria-roledescription": "Upload/cancel file",
+                onClick: handleClick,
+                children: "Upload statistics"
+            }, void 0, false, {
+                fileName: "src/components/Upload.tsx",
+                lineNumber: 49,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                className: "display-none",
+                type: "file",
+                accept: "application/json",
+                ref: hiddenFileInput,
+                style: {
+                    display: "none"
+                },
+                onChange: handleChange,
+                onClick: handleClick
+            }, void 0, false, {
+                fileName: "src/components/Upload.tsx",
+                lineNumber: 58,
+                columnNumber: 7
+            }, undefined),
+            showErrorMessage && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                className: "error",
+                children: "File must be a tidystats JSON file."
+            }, void 0, false, {
+                fileName: "src/components/Upload.tsx",
+                lineNumber: 68,
+                columnNumber: 9
+            }, undefined)
+        ]
+    }, void 0, true, {
+        fileName: "src/components/Upload.tsx",
+        lineNumber: 48,
         columnNumber: 5
     }, undefined);
 };
-_c = Row;
-const RowName = (props)=>{
-    const { isHeader , isBold , children  } = props;
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        className: `flex align-items ${isHeader ? "w-100" : "w-23"} ${isBold ? "bold" : "normal"}`,
-        children: children
-    }, void 0, false, {
-        fileName: "src/components/Row.tsx",
-        lineNumber: 34,
-        columnNumber: 5
-    }, undefined);
-};
-_c1 = RowName;
-const RowValue = (props)=>{
-    const { children  } = props;
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        className: "grow-1",
-        children: children
-    }, void 0, false, {
-        fileName: "src/components/Row.tsx",
-        lineNumber: 51,
-        columnNumber: 10
-    }, undefined);
-};
-_c2 = RowValue;
-var _c, _c1, _c2;
-$RefreshReg$(_c, "Row");
-$RefreshReg$(_c1, "RowName");
-$RefreshReg$(_c2, "RowValue");
+_s(Upload, "QsSebDLVqcG7/4ydE38u9S89mAY=");
+_c = Upload;
+var _c;
+$RefreshReg$(_c, "Upload");
 
-  $parcel$ReactRefreshHelpers$2aca.postlude(module);
+  $parcel$ReactRefreshHelpers$a38c.postlude(module);
 } finally {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"1HBc1":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../classes/Tidystats":"fiv0m","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"fiv0m":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "Tidystats", ()=>Tidystats);
+var _analysis = require("./Analysis");
+class Tidystats {
+    constructor(data){
+        let analyses = [];
+        for (let key of Object.keys(data)){
+            const analysis = new (0, _analysis.Analysis)(key, data[key]);
+            analyses.push(analysis);
+        }
+        this.analyses = analyses;
+    }
+    findStatistic(id) {
+        // Split the identifier up in the separate components
+        const components = id.split("$");
+        // Check if the statistic is a lower or upper bound statistic
+        // If so, remove the last component
+        if (components[components.length - 1].match(/lower|upper/)) components.pop();
+        // Split up the components into the identifier, the statistics name, and everything else as group names
+        const identifier = components[0];
+        const statisticName = components[components.length - 1];
+        const groupNames = components.slice(1, components.length - 1);
+        // Find the analysis based on the identifier
+        const analysis = this.analyses.find((x)=>x.identifier === identifier);
+        // Find the statistics
+        let statistic, statistics;
+        if (groupNames.length) {
+            let groups, group;
+            groups = analysis?.groups;
+            for(let i = 0; i < groupNames.length; i++){
+                group = groups?.find((x)=>x.name === groupNames[i]);
+                if (i < groupNames.length) {
+                    group = groups?.find((x)=>x.name === groupNames[i]);
+                    groups = group?.groups;
+                }
+            }
+            statistics = group?.statistics;
+        } else statistics = analysis?.statistics;
+        // Find the statistic
+        statistic = statistics?.find((x)=>x.name === statisticName);
+        return statistic;
+    }
+}
+
+},{"./Analysis":"dt6Cb","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"dt6Cb":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "Analysis", ()=>Analysis);
+var _statistic = require("./Statistic");
+var _group = require("./Group");
+class Analysis {
+    constructor(identifier, data){
+        this.identifier = identifier;
+        this.method = data.method;
+        if (data.statistics) {
+            const statistics = [];
+            for (let datum of data.statistics){
+                let statistic;
+                if ("level" in datum) statistic = new (0, _statistic.RangedStatistic)(this.identifier, datum);
+                else statistic = new (0, _statistic.Statistic)(this.identifier, datum);
+                statistics.push(statistic);
+            }
+            this.statistics = statistics;
+        }
+        if (data.groups) {
+            const groups = [];
+            for (let datum1 of data.groups){
+                const group = new (0, _group.Group)(this.identifier, datum1);
+                groups.push(group);
+            }
+            this.groups = groups;
+        }
+    }
+}
+
+},{"./Statistic":"gGked","./Group":"fxTRQ","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gGked":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "Statistic", ()=>Statistic);
+parcelHelpers.export(exports, "RangedStatistic", ()=>RangedStatistic);
+class Statistic {
+    constructor(identifier, data){
+        this.name = data.name;
+        this.identifier = identifier + "$" + this.name;
+        this.symbol = data.symbol;
+        this.subscript = data.subscript;
+        this.value = data.value;
+    }
+}
+class RangedStatistic extends Statistic {
+    constructor(identifier, data){
+        super(identifier, data);
+        this.interval = data.interval;
+        this.level = data.level;
+        this.lower = data.lower;
+        this.upper = data.upper;
+    }
+}
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"fxTRQ":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "Group", ()=>Group);
+var _statistic = require("./Statistic");
+class Group {
+    constructor(identifier, data){
+        this.name = data.name;
+        this.identifier = identifier + "$" + this.name;
+        if (data.statistics) {
+            const statistics = [];
+            for (let datum of data.statistics){
+                let statistic;
+                if ("level" in datum) statistic = new (0, _statistic.RangedStatistic)(this.identifier, datum);
+                else statistic = new (0, _statistic.Statistic)(this.identifier, datum);
+                statistics.push(statistic);
+            }
+            this.statistics = statistics;
+        }
+        if (data.groups) {
+            const groups = [];
+            for (let datum1 of data.groups){
+                const group = new Group(this.identifier, datum1);
+                groups.push(group);
+            }
+            this.groups = groups;
+        }
+    }
+}
+
+},{"./Statistic":"gGked","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"9hsWd":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$ca0e = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$ca0e.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "Analyses", ()=>Analyses);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _collapsible = require("./Collapsible");
+var _groups = require("./Groups");
+var _statistics = require("./Statistics");
+var _row = require("./Row");
+var _gasFunctions = require("../functions/gasFunctions");
+const Analyses = (props)=>{
+    const { data  } = props;
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
+                children: "Analyses"
+            }, void 0, false, {
+                fileName: "src/components/Analyses.tsx",
+                lineNumber: 17,
+                columnNumber: 7
+            }, undefined),
+            data.map((x)=>{
+                const statistics = x.statistics;
+                const groups = x.groups;
+                return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _collapsible.Collapsible), {
+                    open: false,
+                    header: x.identifier,
+                    isPrimary: true,
+                    children: [
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _row.Row), {
+                            indented: true,
+                            hasBorder: true,
+                            children: [
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _row.RowName), {
+                                    isHeader: false,
+                                    isBold: true,
+                                    children: "Method"
+                                }, void 0, false, {
+                                    fileName: "src/components/Analyses.tsx",
+                                    lineNumber: 30,
+                                    columnNumber: 15
+                                }, undefined),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                    children: x.method
+                                }, void 0, false, {
+                                    fileName: "src/components/Analyses.tsx",
+                                    lineNumber: 33,
+                                    columnNumber: 15
+                                }, undefined)
+                            ]
+                        }, void 0, true, {
+                            fileName: "src/components/Analyses.tsx",
+                            lineNumber: 29,
+                            columnNumber: 13
+                        }, undefined),
+                        statistics && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _statistics.Statistics), {
+                            data: statistics
+                        }, void 0, false, {
+                            fileName: "src/components/Analyses.tsx",
+                            lineNumber: 35,
+                            columnNumber: 28
+                        }, undefined),
+                        groups && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _groups.Groups), {
+                            data: groups
+                        }, void 0, false, {
+                            fileName: "src/components/Analyses.tsx",
+                            lineNumber: 36,
+                            columnNumber: 24
+                        }, undefined)
+                    ]
+                }, x.identifier, true, {
+                    fileName: "src/components/Analyses.tsx",
+                    lineNumber: 23,
+                    columnNumber: 11
+                }, undefined);
+            }),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
+                children: "Actions"
+            }, void 0, false, {
+                fileName: "src/components/Analyses.tsx",
+                lineNumber: 40,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                    "aria-roledescription": "Update statistics",
+                    onClick: (0, _gasFunctions.updateStatistics),
+                    children: "Update statistics"
+                }, void 0, false, {
+                    fileName: "src/components/Analyses.tsx",
+                    lineNumber: 42,
+                    columnNumber: 9
+                }, undefined)
+            }, void 0, false, {
+                fileName: "src/components/Analyses.tsx",
+                lineNumber: 41,
+                columnNumber: 7
+            }, undefined)
+        ]
+    }, void 0, true);
+};
+_c = Analyses;
+var _c;
+$RefreshReg$(_c, "Analyses");
+
+  $parcel$ReactRefreshHelpers$ca0e.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","./Collapsible":"98sFe","./Groups":"96v6N","./Statistics":"dg00I","./Row":"BEoMz","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","../functions/gasFunctions":"b3isC"}],"98sFe":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$d73a = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$d73a.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "Collapsible", ()=>Collapsible);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _buttons = require("./Buttons");
+var _row = require("./Row");
+var _icons = require("./Icons");
+var _s = $RefreshSig$();
+const Collapsible = (props)=>{
+    _s();
+    const { header , isPrimary , onInsertClick , open , children  } = props;
+    const [isOpen, setIsOpen] = (0, _react.useState)(open);
+    const toggleOpen = ()=>{
+        setIsOpen((prev)=>!prev);
+    };
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                style: {
+                    background: isPrimary && "var(--gray)",
+                    fontStyle: isOpen && "italic"
+                },
+                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _row.Row), {
+                    children: [
+                        !isOpen && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _buttons.Button), {
+                            onClick: toggleOpen,
+                            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _icons.ChevronRight), {
+                                width: 8,
+                                height: 12
+                            }, void 0, false, {
+                                fileName: "src/components/Collapsible.tsx",
+                                lineNumber: 33,
+                                columnNumber: 15
+                            }, undefined)
+                        }, void 0, false, {
+                            fileName: "src/components/Collapsible.tsx",
+                            lineNumber: 32,
+                            columnNumber: 13
+                        }, undefined),
+                        isOpen && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _buttons.Button), {
+                            onClick: toggleOpen,
+                            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _icons.ChevronDown), {
+                                width: 12,
+                                height: 8
+                            }, void 0, false, {
+                                fileName: "src/components/Collapsible.tsx",
+                                lineNumber: 39,
+                                columnNumber: 15
+                            }, undefined)
+                        }, void 0, false, {
+                            fileName: "src/components/Collapsible.tsx",
+                            lineNumber: 38,
+                            columnNumber: 13
+                        }, undefined),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _row.RowName), {
+                            isHeader: true,
+                            children: header
+                        }, void 0, false, {
+                            fileName: "src/components/Collapsible.tsx",
+                            lineNumber: 43,
+                            columnNumber: 11
+                        }, undefined),
+                        onInsertClick && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _buttons.Button), {
+                            onClick: onInsertClick,
+                            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _icons.Table), {
+                                width: 14,
+                                height: 14
+                            }, void 0, false, {
+                                fileName: "src/components/Collapsible.tsx",
+                                lineNumber: 47,
+                                columnNumber: 15
+                            }, undefined)
+                        }, void 0, false, {
+                            fileName: "src/components/Collapsible.tsx",
+                            lineNumber: 46,
+                            columnNumber: 13
+                        }, undefined)
+                    ]
+                }, void 0, true, {
+                    fileName: "src/components/Collapsible.tsx",
+                    lineNumber: 30,
+                    columnNumber: 9
+                }, undefined)
+            }, void 0, false, {
+                fileName: "src/components/Collapsible.tsx",
+                lineNumber: 24,
+                columnNumber: 7
+            }, undefined),
+            isOpen && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                children: children
+            }, void 0, false, {
+                fileName: "src/components/Collapsible.tsx",
+                lineNumber: 52,
+                columnNumber: 18
+            }, undefined)
+        ]
+    }, void 0, true);
+};
+_s(Collapsible, "VL896lenp0EBD8yl2XSBtUW3qhI=");
+_c = Collapsible;
+var _c;
+$RefreshReg$(_c, "Collapsible");
+
+  $parcel$ReactRefreshHelpers$d73a.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","./Buttons":"1HBc1","./Row":"BEoMz","./Icons":"eyY6t","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"1HBc1":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$6645 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -28231,7 +28123,16 @@ const Button = (props)=>{
         onClick();
     };
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        className: `button-size-1 shrink-0 flex justify-content align-items ${isHover ? "hover-gray" : ""}`,
+        style: {
+            width: "2.5rem",
+            height: "2.5rem",
+            flexShrink: 0,
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            background: isHover && "var(--gray-hover)",
+            color: "red"
+        },
         onClick: handleClick,
         onMouseEnter: handleMouseEnter,
         onMouseLeave: handleMouseLeave,
@@ -28250,18 +28151,25 @@ const Checkbox = (props)=>{
         onClick();
     };
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        className: "button-size-1 shrink-0 flex justify-content align-items",
+        style: {
+            width: "3rem",
+            height: "3rem",
+            flexShrink: 0,
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center"
+        },
         onClick: handleClick,
         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
             type: "checkbox"
         }, void 0, false, {
             fileName: "src/components/Buttons.tsx",
-            lineNumber: 53,
+            lineNumber: 67,
             columnNumber: 7
         }, undefined)
     }, void 0, false, {
         fileName: "src/components/Buttons.tsx",
-        lineNumber: 49,
+        lineNumber: 56,
         columnNumber: 5
     }, undefined);
 };
@@ -28275,7 +28183,77 @@ $RefreshReg$(_c1, "Checkbox");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"96v6N":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"BEoMz":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$2aca = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$2aca.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "Row", ()=>Row);
+parcelHelpers.export(exports, "RowName", ()=>RowName);
+parcelHelpers.export(exports, "RowValue", ()=>RowValue);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+const Row = (props)=>{
+    const { indented , hasBorder , children  } = props;
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        style: {
+            minHeight: "2.5rem",
+            display: "flex",
+            alignItems: "center",
+            marginLeft: indented && "1rem",
+            borderBottom: hasBorder && "1px solid var(--gray)"
+        },
+        children: children
+    }, void 0, false, {
+        fileName: "src/components/Row.tsx",
+        lineNumber: 13,
+        columnNumber: 5
+    }, undefined);
+};
+_c = Row;
+const RowName = (props)=>{
+    const { isHeader , isBold , children  } = props;
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        style: {
+            width: isHeader ? "100%" : "5rem",
+            fontWeight: isBold && "bold"
+        },
+        children: children
+    }, void 0, false, {
+        fileName: "src/components/Row.tsx",
+        lineNumber: 37,
+        columnNumber: 5
+    }, undefined);
+};
+_c1 = RowName;
+const RowValue = (props)=>{
+    const { children  } = props;
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        style: {
+            flexGrow: 1
+        },
+        children: children
+    }, void 0, false, {
+        fileName: "src/components/Row.tsx",
+        lineNumber: 55,
+        columnNumber: 10
+    }, undefined);
+};
+_c2 = RowValue;
+var _c, _c1, _c2;
+$RefreshReg$(_c, "Row");
+$RefreshReg$(_c1, "RowName");
+$RefreshReg$(_c2, "RowValue");
+
+  $parcel$ReactRefreshHelpers$2aca.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"96v6N":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$9561 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -28288,19 +28266,19 @@ parcelHelpers.export(exports, "Groups", ()=>Groups);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _collapsible = require("./Collapsible");
 var _statistics = require("./Statistics");
+var _insertTable = require("../functions/insertTable");
 const Groups = (props)=>{
     const { data  } = props;
-    const handleAddClick = ()=>{
-        console.log("inserting table");
-    };
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
         children: data.map((x)=>{
             const statistics = x.statistics;
             const groups = x.groups;
+            let canInsertTable = false;
+            if (groups) canInsertTable = "statistics" in groups[0];
             return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _collapsible.Collapsible), {
                 open: false,
                 header: x.name,
-                handleAddClick: handleAddClick,
+                onInsertClick: canInsertTable ? ()=>(0, _insertTable.insertTable)() : undefined,
                 children: [
                     statistics && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _statistics.Statistics), {
                         data: x.statistics
@@ -28334,7 +28312,7 @@ $RefreshReg$(_c, "Groups");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","./Collapsible":"98sFe","./Statistics":"dg00I","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"dg00I":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","./Collapsible":"98sFe","./Statistics":"dg00I","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","../functions/insertTable":"5J7ax"}],"dg00I":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$7e80 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -28355,64 +28333,54 @@ var _s = $RefreshSig$();
 const Statistics = (props)=>{
     _s();
     const { data  } = props;
-    const [items, setItems] = (0, _react.useState)([]);
+    const [statistics, setStatistics] = (0, _react.useState)();
+    const [clickedSettings, setClickedSettings] = (0, _react.useState)(false);
     (0, _react.useEffect)(()=>{
-        const initialItems = [];
+        const initialStatistics = [];
         data.forEach((x)=>{
+            const item = {
+                identifier: x.identifier,
+                name: x.name,
+                symbol: x.symbol,
+                subscript: x.subscript,
+                value: (0, _formatValue.formatValue)(x, 2),
+                checked: true
+            };
+            initialStatistics.push(item);
             if ("level" in x) {
-                const y = x;
-                const item = {
-                    identifier: y.identifier,
-                    name: y.name,
-                    symbol: y.symbol !== undefined ? y.symbol : y.name,
-                    subscript: y.subscript,
-                    value: (0, _formatValue.formatValue)(y, 2),
-                    checked: true
-                };
+                const rangedStatistic = x;
                 const item_lower = {
-                    identifier: y.identifier + "$lower",
-                    name: "lower",
-                    //symbol: y.level * 100 + "% " + y.interval,
-                    symbol: y.interval,
-                    subscript: "lower",
-                    value: (0, _formatValue.formatValue)(y, 2, "lower"),
+                    identifier: x.identifier + "$lower",
+                    name: "LL",
+                    interval: rangedStatistic.interval,
+                    level: rangedStatistic.level,
+                    value: (0, _formatValue.formatValue)(rangedStatistic, 2, "lower"),
                     checked: true
                 };
                 const item_upper = {
-                    identifier: y.identifier + "$upper",
-                    name: "upper",
-                    //symbol: y.level * 100 + "% " + y.interval,
-                    symbol: y.interval,
-                    subscript: "upper",
-                    value: (0, _formatValue.formatValue)(y, 2, "upper"),
+                    identifier: x.identifier + "$upper",
+                    name: "UL",
+                    interval: rangedStatistic.interval,
+                    level: rangedStatistic.level,
+                    value: (0, _formatValue.formatValue)(rangedStatistic, 2, "upper"),
                     checked: true
                 };
-                initialItems.push(item);
-                initialItems.push(item_lower);
-                initialItems.push(item_upper);
-            } else {
-                const item1 = {
-                    identifier: x.identifier,
-                    name: x.name,
-                    symbol: x.symbol !== undefined ? x.symbol : x.name,
-                    subscript: x.subscript,
-                    value: (0, _formatValue.formatValue)(x, 2),
-                    checked: true
-                };
-                initialItems.push(item1);
+                initialStatistics.push(item_lower);
+                initialStatistics.push(item_upper);
             }
         });
-        setItems(initialItems);
-    }, [
-        data
-    ]);
-    const handleAddClick = ()=>{
-        (0, _gasFunctions.insertText)("test5");
+        setStatistics(initialStatistics);
+    }, []);
+    const toggleCheck = (name)=>{
+        setStatistics(statistics.map((item)=>item.name === name || name === "LL" && item.name == "UL" || name === "UL" && item.name == "LL" ? {
+                ...item,
+                checked: !item.checked
+            } : item));
     };
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _row.Row), {
-                indentationLevel: 4,
+                indented: true,
                 hasBorder: true,
                 children: [
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _row.RowName), {
@@ -28421,13 +28389,12 @@ const Statistics = (props)=>{
                         children: "Statistics:"
                     }, void 0, false, {
                         fileName: "src/components/Statistics.tsx",
-                        lineNumber: 86,
+                        lineNumber: 87,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _buttons.Button), {
-                        onClick: handleAddClick,
+                        onClick: ()=>setClickedSettings((prev)=>!prev),
                         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _icons.Gear), {
-                            className: "fill-blue",
                             width: 16,
                             height: 16
                         }, void 0, false, {
@@ -28441,80 +28408,98 @@ const Statistics = (props)=>{
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _buttons.Button), {
-                        onClick: handleAddClick,
+                        onClick: ()=>(0, _gasFunctions.insertStatistics)(statistics),
                         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _icons.Plus), {
                             width: 14,
                             height: 14
                         }, void 0, false, {
                             fileName: "src/components/Statistics.tsx",
-                            lineNumber: 95,
+                            lineNumber: 94,
                             columnNumber: 11
                         }, undefined)
                     }, void 0, false, {
                         fileName: "src/components/Statistics.tsx",
-                        lineNumber: 94,
+                        lineNumber: 93,
                         columnNumber: 9
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/components/Statistics.tsx",
-                lineNumber: 85,
+                lineNumber: 86,
                 columnNumber: 7
             }, undefined),
-            items.map((x, index)=>{
-                const lastRow = index === items.length - 1;
-                return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _row.Row), {
-                    indentationLevel: 8,
-                    hasBorder: !lastRow,
-                    children: [
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _row.RowName), {
-                            isHeader: false,
-                            children: x.name
-                        }, void 0, false, {
-                            fileName: "src/components/Statistics.tsx",
-                            lineNumber: 102,
-                            columnNumber: 13
-                        }, undefined),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _row.RowValue), {
-                            children: x.value
-                        }, void 0, false, {
-                            fileName: "src/components/Statistics.tsx",
-                            lineNumber: 103,
-                            columnNumber: 13
-                        }, undefined),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _buttons.Checkbox), {
-                            onClick: handleAddClick
-                        }, void 0, false, {
-                            fileName: "src/components/Statistics.tsx",
-                            lineNumber: 104,
-                            columnNumber: 13
-                        }, undefined),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _buttons.Button), {
-                            onClick: handleAddClick,
-                            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _icons.Plus), {
-                                width: 14,
-                                height: 14
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                style: {
+                    marginLeft: "2rem"
+                },
+                children: statistics && statistics.map((x, index)=>{
+                    const lastRow = index === statistics.length - 1;
+                    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _row.Row), {
+                        indented: x.name === "UL" || x.name === "LL",
+                        hasBorder: !lastRow,
+                        children: [
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _row.RowName), {
+                                isHeader: false,
+                                children: [
+                                    x.symbol ? x.symbol : x.name,
+                                    x.subscript && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("sub", {
+                                        children: x.subscript
+                                    }, void 0, false, {
+                                        fileName: "src/components/Statistics.tsx",
+                                        lineNumber: 109,
+                                        columnNumber: 35
+                                    }, undefined)
+                                ]
+                            }, void 0, true, {
+                                fileName: "src/components/Statistics.tsx",
+                                lineNumber: 107,
+                                columnNumber: 17
+                            }, undefined),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _row.RowValue), {
+                                children: x.value
                             }, void 0, false, {
                                 fileName: "src/components/Statistics.tsx",
-                                lineNumber: 106,
-                                columnNumber: 15
+                                lineNumber: 111,
+                                columnNumber: 17
+                            }, undefined),
+                            clickedSettings && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _buttons.Checkbox), {
+                                onClick: ()=>toggleCheck(x.name)
+                            }, void 0, false, {
+                                fileName: "src/components/Statistics.tsx",
+                                lineNumber: 113,
+                                columnNumber: 19
+                            }, undefined),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _buttons.Button), {
+                                onClick: ()=>(0, _gasFunctions.insertStatistic)(x.value, x.identifier),
+                                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _icons.Plus), {
+                                    width: 14,
+                                    height: 14
+                                }, void 0, false, {
+                                    fileName: "src/components/Statistics.tsx",
+                                    lineNumber: 117,
+                                    columnNumber: 19
+                                }, undefined)
+                            }, void 0, false, {
+                                fileName: "src/components/Statistics.tsx",
+                                lineNumber: 116,
+                                columnNumber: 17
                             }, undefined)
-                        }, void 0, false, {
-                            fileName: "src/components/Statistics.tsx",
-                            lineNumber: 105,
-                            columnNumber: 13
-                        }, undefined)
-                    ]
-                }, x.identifier, true, {
-                    fileName: "src/components/Statistics.tsx",
-                    lineNumber: 101,
-                    columnNumber: 11
-                }, undefined);
-            })
+                        ]
+                    }, x.identifier, true, {
+                        fileName: "src/components/Statistics.tsx",
+                        lineNumber: 102,
+                        columnNumber: 15
+                    }, undefined);
+                })
+            }, void 0, false, {
+                fileName: "src/components/Statistics.tsx",
+                lineNumber: 97,
+                columnNumber: 7
+            }, undefined)
         ]
     }, void 0, true);
 };
-_s(Statistics, "E85yb7BhBnl3/OpymRdjFiQJ97s=");
+_s(Statistics, "FbwIqin2cI8lD7EBSNeHjSsHyhw=");
 _c = Statistics;
 var _c;
 $RefreshReg$(_c, "Statistics");
@@ -28524,7 +28509,7 @@ $RefreshReg$(_c, "Statistics");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../functions/formatValue":"k49Gl","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./Icons":"eyY6t","./Row":"BEoMz","./Buttons":"1HBc1","../functions/gasFunctions":"b3isC"}],"k49Gl":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","./Row":"BEoMz","./Buttons":"1HBc1","./Icons":"eyY6t","../functions/formatValue":"k49Gl","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","../functions/gasFunctions":"b3isC"}],"k49Gl":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "formatValue", ()=>formatValue);
@@ -28586,59 +28571,26 @@ const formatValue = (x, decimals, bound)=>{
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"b3isC":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "insertText", ()=>insertText);
-const insertText = (x)=>{
-    google.script.run.insertText(x);
+parcelHelpers.export(exports, "insertStatistic", ()=>insertStatistic);
+parcelHelpers.export(exports, "insertStatistics", ()=>insertStatistics);
+parcelHelpers.export(exports, "updateStatistics", ()=>updateStatistics);
+const insertStatistic = (x, id)=>{
+    google.script.run.insertStatistic(x, id);
+};
+const insertStatistics = (x)=>{
+    google.script.run.insertStatistics(x);
+};
+const updateStatistics = ()=>{
+    google.script.run.updateStatistics();
 };
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"35enc":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$d5a6 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
-var prevRefreshReg = window.$RefreshReg$;
-var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$d5a6.prelude(module);
-
-try {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"5J7ax":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "Header", ()=>Header);
-var _jsxDevRuntime = require("react/jsx-dev-runtime");
-var _icons = require("./Icons");
-const Header = ()=>{
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        className: "mb-1 m-n1 p-1 bg-gray flex align-items gap-2",
-        children: [
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _icons.Logo), {
-                width: 32,
-                height: 32
-            }, void 0, false, {
-                fileName: "src/components/Header.tsx",
-                lineNumber: 6,
-                columnNumber: 7
-            }, undefined),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
-                children: "tidystats"
-            }, void 0, false, {
-                fileName: "src/components/Header.tsx",
-                lineNumber: 7,
-                columnNumber: 7
-            }, undefined)
-        ]
-    }, void 0, true, {
-        fileName: "src/components/Header.tsx",
-        lineNumber: 5,
-        columnNumber: 5
-    }, undefined);
-};
-_c = Header;
-var _c;
-$RefreshReg$(_c, "Header");
+parcelHelpers.export(exports, "insertTable", ()=>insertTable);
+const insertTable = ()=>{};
 
-  $parcel$ReactRefreshHelpers$d5a6.postlude(module);
-} finally {
-  window.$RefreshReg$ = prevRefreshReg;
-  window.$RefreshSig$ = prevRefreshSig;
-}
-},{"react/jsx-dev-runtime":"iTorj","./Icons":"eyY6t","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}]},["1xC6H","cRGSm","aryw8"], "aryw8", "parcelRequire3ca7")
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["1xC6H","cRGSm","aryw8"], "aryw8", "parcelRequire3ca7")
 
 </script>
 </body>

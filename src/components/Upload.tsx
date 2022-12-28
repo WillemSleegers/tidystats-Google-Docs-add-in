@@ -60,6 +60,7 @@ const Upload = (props: UploadProps) => {
         type="file"
         accept="application/json"
         ref={hiddenFileInput}
+        style={{ display: "none" }}
         onChange={handleChange}
         onClick={handleClick}
       />

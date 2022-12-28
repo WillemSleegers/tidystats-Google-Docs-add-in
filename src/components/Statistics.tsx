@@ -4,17 +4,19 @@ import { Button, Checkbox } from "./Buttons"
 import { Gear, Plus } from "./Icons"
 import { Statistic, RangedStatistic } from "../classes/Statistic"
 import { formatValue } from "../functions/formatValue"
-import { insertText } from "../functions/gasFunctions"
+import { insertStatistic, insertStatistics } from "../functions/gasFunctions"
 
 type StatisticsProps = {
   data: Statistic[]
 }
 
-type itemsProps = {
-  name: string
+type statistic = {
   identifier: string
-  symbol: string
+  name: string
+  symbol?: string
   subscript?: string
+  interval?: string
+  level?: number
   value: string
   checked: boolean
 }
@@ -22,92 +24,102 @@ type itemsProps = {
 export const Statistics = (props: StatisticsProps) => {
   const { data } = props
 
-  const [items, setItems] = useState<Array<itemsProps>>([])
+  const [statistics, setStatistics] = useState<statistic[]>()
+  const [clickedSettings, setClickedSettings] = useState(false)
 
   useEffect(() => {
-    const initialItems: itemsProps[] = []
+    const initialStatistics: statistic[] = []
 
     data.forEach((x) => {
-      if ("level" in x) {
-        const y = x as RangedStatistic
+      const item = {
+        identifier: x.identifier,
+        name: x.name,
+        symbol: x.symbol,
+        subscript: x.subscript,
+        value: formatValue(x, 2),
+        checked: true,
+      }
+      initialStatistics.push(item)
 
-        const item = {
-          identifier: y.identifier,
-          name: y.name,
-          symbol: y.symbol !== undefined ? y.symbol : y.name,
-          subscript: y.subscript,
-          value: formatValue(y, 2),
-          checked: true,
-        }
+      if ("level" in x) {
+        const rangedStatistic = x as RangedStatistic
+
         const item_lower = {
-          identifier: y.identifier + "$lower",
-          name: "lower",
-          //symbol: y.level * 100 + "% " + y.interval,
-          symbol: y.interval,
-          subscript: "lower",
-          value: formatValue(y, 2, "lower"),
+          identifier: x.identifier + "$lower",
+          name: "LL",
+          interval: rangedStatistic.interval,
+          level: rangedStatistic.level,
+          value: formatValue(rangedStatistic, 2, "lower"),
           checked: true,
         }
         const item_upper = {
-          identifier: y.identifier + "$upper",
-          name: "upper",
-          //symbol: y.level * 100 + "% " + y.interval,
-          symbol: y.interval,
-          subscript: "upper",
-          value: formatValue(y, 2, "upper"),
+          identifier: x.identifier + "$upper",
+          name: "UL",
+          interval: rangedStatistic.interval,
+          level: rangedStatistic.level,
+          value: formatValue(rangedStatistic, 2, "upper"),
           checked: true,
         }
-        initialItems.push(item)
-        initialItems.push(item_lower)
-        initialItems.push(item_upper)
-      } else {
-        const item = {
-          identifier: x.identifier,
-          name: x.name,
-          symbol: x.symbol !== undefined ? x.symbol : x.name,
-          subscript: x.subscript,
-          value: formatValue(x, 2),
-          checked: true,
-        }
-        initialItems.push(item)
+
+        initialStatistics.push(item_lower)
+        initialStatistics.push(item_upper)
       }
     })
 
-    setItems(initialItems)
-  }, [data])
+    setStatistics(initialStatistics)
+  }, [])
 
-  const handleAddClick = () => {
-    insertText("test5")
+  const toggleCheck = (name: string) => {
+    setStatistics(
+      statistics!.map((item) =>
+        item.name === name ||
+        (name === "LL" && item.name == "UL") ||
+        (name === "UL" && item.name == "LL")
+          ? { ...item, checked: !item.checked }
+          : item
+      )
+    )
   }
 
   return (
     <>
-      <Row indentationLevel={4} hasBorder={true}>
-        <RowName isHeader={true} isBold={true}>
+      <Row indented hasBorder>
+        <RowName isHeader isBold>
           Statistics:
         </RowName>
-
-        <Button onClick={handleAddClick}>
-          <Gear className="fill-blue" width={16} height={16} />
+        <Button onClick={() => setClickedSettings((prev) => !prev)}>
+          <Gear width={16} height={16} />
         </Button>
-
-        <Button onClick={handleAddClick}>
+        <Button onClick={() => insertStatistics(statistics!)}>
           <Plus width={14} height={14} />
         </Button>
       </Row>
-      {items.map((x: itemsProps, index: number) => {
-        const lastRow = index === items.length - 1
-        return (
-          <Row key={x.identifier} indentationLevel={8} hasBorder={!lastRow}>
-            <RowName isHeader={false}>{x.name}</RowName>
-            <RowValue>{x.value}</RowValue>
-            <Checkbox onClick={handleAddClick} />
-            <Button onClick={handleAddClick}>
-              <Plus width={14} height={14} />
-            </Button>
-          </Row>
-        )
-      })}
+      <div style={{ marginLeft: "2rem" }}>
+        {statistics &&
+          statistics.map((x, index: number) => {
+            const lastRow = index === statistics.length - 1
+            return (
+              <Row
+                key={x.identifier}
+                indented={x.name === "UL" || x.name === "LL"}
+                hasBorder={!lastRow}
+              >
+                <RowName isHeader={false}>
+                  {x.symbol ? x.symbol : x.name}
+                  {x.subscript && <sub>{x.subscript}</sub>}
+                </RowName>
+                <RowValue>{x.value}</RowValue>
+                {clickedSettings && (
+                  <Checkbox onClick={() => toggleCheck(x.name)} />
+                )}
+
+                <Button onClick={() => insertStatistic(x.value, x.identifier)}>
+                  <Plus width={14} height={14} />
+                </Button>
+              </Row>
+            )
+          })}
+      </div>
     </>
   )
 }

@@ -1,20 +1,23 @@
 import { ReactNode } from "react"
 
 type RowProps = {
-  indentationLevel?: number
-  background?: "gray"
+  indented?: boolean
   hasBorder?: boolean
   children: ReactNode
 }
 
 export const Row = (props: RowProps) => {
-  const { indentationLevel, background, hasBorder, children } = props
+  const { indented, hasBorder, children } = props
 
   return (
     <div
-      className={`min-h-6 flex align-items ms-${indentationLevel} bg-${background} ${
-        hasBorder ? "border-bottom" : ""
-      }`}
+      style={{
+        minHeight: "2.5rem",
+        display: "flex",
+        alignItems: "center",
+        marginLeft: indented && "1rem",
+        borderBottom: hasBorder && "1px solid var(--gray)",
+      }}
     >
       {children}
     </div>
@@ -32,9 +35,10 @@ export const RowName = (props: RowNameProps) => {
 
   return (
     <div
-      className={`flex align-items ${isHeader ? "w-100" : "w-23"} ${
-        isBold ? "bold" : "normal"
-      }`}
+      style={{
+        width: isHeader ? "100%" : "5rem",
+        fontWeight: isBold && "bold",
+      }}
     >
       {children}
     </div>
@@ -48,5 +52,5 @@ type RowValueProps = {
 export const RowValue = (props: RowValueProps) => {
   const { children } = props
 
-  return <div className="grow-1">{children}</div>
+  return <div style={{ flexGrow: 1 }}>{children}</div>
 }

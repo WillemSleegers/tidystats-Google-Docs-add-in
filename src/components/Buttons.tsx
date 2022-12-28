@@ -22,9 +22,16 @@ export const Button = (props: ButtonProps) => {
 
   return (
     <div
-      className={`button-size-1 shrink-0 flex justify-content align-items ${
-        isHover ? "hover-gray" : ""
-      }`}
+      style={{
+        width: "2.5rem",
+        height: "2.5rem",
+        flexShrink: 0,
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        background: isHover && "var(--gray-hover)",
+        color: "red",
+      }}
       onClick={handleClick}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
@@ -47,7 +54,14 @@ export const Checkbox = (props: CheckboxProps) => {
 
   return (
     <div
-      className="button-size-1 shrink-0 flex justify-content align-items"
+      style={{
+        width: "3rem",
+        height: "3rem",
+        flexShrink: 0,
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
       onClick={handleClick}
     >
       <input type="checkbox" />

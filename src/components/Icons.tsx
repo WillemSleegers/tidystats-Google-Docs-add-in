@@ -74,17 +74,15 @@ export const Logo = (props: LogoProps) => {
 type ChevronRightProps = {
   width: number
   height: number
-  className?: string
 }
 
 export const ChevronRight = (props: ChevronRightProps) => {
-  const { width, height, className } = props
+  const { width, height } = props
 
   return (
     <svg
       width={width}
       height={height}
-      className={className}
       viewBox="0 0 8 12"
       xmlns="http://www.w3.org/2000/svg"
     >
@@ -100,17 +98,15 @@ export const ChevronRight = (props: ChevronRightProps) => {
 type ChevronDownProps = {
   width: number
   height: number
-  className?: string
 }
 
 export const ChevronDown = (props: ChevronDownProps) => {
-  const { width, height, className } = props
+  const { width, height } = props
 
   return (
     <svg
       width={width}
       height={height}
-      className={className}
       viewBox="0 0 12 8"
       xmlns="http://www.w3.org/2000/svg"
     >
@@ -126,17 +122,16 @@ export const ChevronDown = (props: ChevronDownProps) => {
 type GearProps = {
   width: number
   height: number
-  className?: string
 }
 
 export const Gear = (props: GearProps) => {
-  const { width, height, className } = props
+  const { width, height } = props
 
   return (
     <svg
       width={width}
       height={height}
-      className={className}
+      fill="#3079ed"
       viewBox="0 0 16 16"
       xmlns="http://www.w3.org/2000/svg"
     >
@@ -152,17 +147,15 @@ export const Gear = (props: GearProps) => {
 type PlusProps = {
   width: number
   height: number
-  className?: string
 }
 
 export const Plus = (props: PlusProps) => {
-  const { width, height, className } = props
+  const { width, height } = props
 
   return (
     <svg
       width={width}
       height={height}
-      className={className}
       viewBox="0 0 16 16"
       xmlns="http://www.w3.org/2000/svg"
     >
@@ -178,17 +171,15 @@ export const Plus = (props: PlusProps) => {
 type TableProps = {
   width: number
   height: number
-  className?: string
 }
 
 export const Table = (props: TableProps) => {
-  const { width, height, className } = props
+  const { width, height } = props
 
   return (
     <svg
       width={width}
       height={height}
-      className={className}
       viewBox="0 0 14 14"
       xmlns="http://www.w3.org/2000/svg"
     >
