@@ -1,7 +1,7 @@
 import { ReactNode, useState } from "react"
-import { Button } from "./Buttons"
+import { IconButton } from "@mui/material"
+import { ExpandMore, ChevronRight, TableChart } from "@mui/icons-material"
 import { Row, RowName } from "./Row"
-import { ChevronDown, ChevronRight, Table } from "./Icons"
 
 interface CollapsibleProps {
   header: string
@@ -23,29 +23,29 @@ export const Collapsible = (props: CollapsibleProps) => {
     <>
       <div
         style={{
-          background: isPrimary && "var(--gray)",
-          fontStyle: isOpen && "italic",
+          backgroundColor: isPrimary ? "var(--gray)" : "white",
+          fontStyle: isOpen ? "italic" : "normal",
         }}
       >
         <Row>
           {!isOpen && (
-            <Button onClick={toggleOpen}>
-              <ChevronRight width={8} height={12} />
-            </Button>
+            <IconButton onClick={toggleOpen}>
+              <ChevronRight />
+            </IconButton>
           )}
 
           {isOpen && (
-            <Button onClick={toggleOpen}>
-              <ChevronDown width={12} height={8} />
-            </Button>
+            <IconButton onClick={toggleOpen}>
+              <ExpandMore />
+            </IconButton>
           )}
 
           <RowName isHeader={true}>{header}</RowName>
 
           {onInsertClick && (
-            <Button onClick={onInsertClick}>
-              <Table width={14} height={14} />
-            </Button>
+            <IconButton>
+              <TableChart />
+            </IconButton>
           )}
         </Row>
       </div>

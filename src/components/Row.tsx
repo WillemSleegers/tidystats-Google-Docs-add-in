@@ -15,8 +15,8 @@ export const Row = (props: RowProps) => {
         minHeight: "2.5rem",
         display: "flex",
         alignItems: "center",
-        marginLeft: indented && "1rem",
-        borderBottom: hasBorder && "1px solid var(--gray)",
+        marginLeft: indented ? "1rem" : "",
+        borderBottom: hasBorder ? "1px solid var(--gray)" : "",
       }}
     >
       {children}
@@ -37,7 +37,7 @@ export const RowName = (props: RowNameProps) => {
     <div
       style={{
         width: isHeader ? "100%" : "5rem",
-        fontWeight: isBold && "bold",
+        fontWeight: isBold ? "bold" : "normal",
       }}
     >
       {children}

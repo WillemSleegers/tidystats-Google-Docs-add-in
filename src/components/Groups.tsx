@@ -1,7 +1,7 @@
 import { Collapsible } from "./Collapsible"
 import { Group } from "../classes/Group"
 import { Statistics } from "./Statistics"
-import { insertTable } from "../functions/insertTable"
+import { insertTable } from "../functions/gas"
 
 type GroupsProps = {
   data: Group[]

@@ -1,10 +1,13 @@
 import { useEffect, useState } from "react"
 import { Row, RowName, RowValue } from "./Row"
-import { Button, Checkbox } from "./Buttons"
-import { Gear, Plus } from "./Icons"
 import { Statistic, RangedStatistic } from "../classes/Statistic"
 import { formatValue } from "../functions/formatValue"
-import { insertStatistic, insertStatistics } from "../functions/gasFunctions"
+import { insertStatistics } from "../functions/gas"
+
+import { Checkbox } from "@mui/material"
+import { Settings, Add } from "@mui/icons-material"
+
+import { IconButton } from "@mui/material"
 
 type StatisticsProps = {
   data: Statistic[]
@@ -87,12 +90,12 @@ export const Statistics = (props: StatisticsProps) => {
         <RowName isHeader isBold>
           Statistics:
         </RowName>
-        <Button onClick={() => setClickedSettings((prev) => !prev)}>
-          <Gear width={16} height={16} />
-        </Button>
-        <Button onClick={() => insertStatistics(statistics!)}>
-          <Plus width={14} height={14} />
-        </Button>
+        <IconButton onClick={() => setClickedSettings((prev) => !prev)}>
+          <Settings />
+        </IconButton>
+        <IconButton onClick={() => insertStatistics()}>
+          <Add />
+        </IconButton>
       </Row>
       <div style={{ marginLeft: "2rem" }}>
         {statistics &&
@@ -113,9 +116,9 @@ export const Statistics = (props: StatisticsProps) => {
                   <Checkbox onClick={() => toggleCheck(x.name)} />
                 )}
 
-                <Button onClick={() => insertStatistic(x.value, x.identifier)}>
-                  <Plus width={14} height={14} />
-                </Button>
+                <IconButton>
+                  <Add />
+                </IconButton>
               </Row>
             )
           })}

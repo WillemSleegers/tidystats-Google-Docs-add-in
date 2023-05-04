@@ -1,5 +1,5 @@
-import { useRef, ChangeEvent, useState } from "react"
-
+import { ChangeEvent, useState, useEffect } from "react"
+import { Button, Alert } from "@mui/material"
 import { Tidystats } from "../classes/Tidystats"
 
 type UploadProps = {
@@ -9,28 +9,20 @@ type UploadProps = {
 const Upload = (props: UploadProps) => {
   const { setTidystats } = props
 
-  const fileInput = useRef<HTMLButtonElement>(null)
-  const hiddenFileInput = useRef<HTMLInputElement>(null)
-  const [showErrorMessage, setShowErrorMessage] = useState(false)
+  const [file, setFile] = useState<File>()
 
-  const handleClick = () => {
-    if (null !== hiddenFileInput.current) {
-      hiddenFileInput.current.click()
-
-      hiddenFileInput.current.value = "" // Reset the value so a new file can be selected
+  const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files) {
+      setFile(e.target.files[0])
     }
   }
 
-  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-    if (event.target.files) {
-      const file = event.target.files[0]
-      fileInput.current!.innerHTML = file.name
-
+  useEffect(() => {
+    if (file) {
       if (file.type === "application/json") {
         const reader = new FileReader()
         reader.onload = () => {
-          const text = reader.result
-          const data = JSON.parse(text as string)
+          const data = JSON.parse(reader.result as string)
           const tidystats = new Tidystats(data)
           setTidystats(tidystats)
         }
@@ -42,32 +34,32 @@ const Upload = (props: UploadProps) => {
         setTidystats(null)
       }
     }
-  }
+  }, [file])
+
+  const [showErrorMessage, setShowErrorMessage] = useState(false)
 
   return (
-    <div className="upload">
-      <button
+    <>
+      <Button
         id="fileUpload"
-        className="action"
-        ref={fileInput}
-        aria-roledescription="Upload/cancel file"
-        onClick={handleClick}
+        variant="contained"
+        component="label"
+        disableElevation
+        style={{ margin: "1rem", textTransform: "none" }}
       >
-        Upload statistics
-      </button>
-      <input
-        className="display-none"
-        type="file"
-        accept="application/json"
-        ref={hiddenFileInput}
-        style={{ display: "none" }}
-        onChange={handleChange}
-        onClick={handleClick}
-      />
+        {file ? file.name : "Upload statistics"}
+        <input
+          hidden
+          type="file"
+          accept="application/json"
+          onChange={handleFileChange}
+        />
+      </Button>
+
       {showErrorMessage && (
-        <p className="error">File must be a tidystats JSON file.</p>
+        <Alert severity="error">File must be a tidystats JSON file.</Alert>
       )}
-    </div>
+    </>
   )
 }
 
