@@ -13,27 +13,29 @@ export const Analyses = (props: AnalysesProps) => {
 
   return (
     <div style={{ marginLeft: "1rem", marginRight: "1rem" }}>
-      <h2 style={{ marginTop: "0", marginBottom: "0" }}>Analyses</h2>
+      <h3 style={{ marginTop: "0", marginBottom: "0.5rem" }}>Analyses</h3>
       {data.map((x: Analysis) => {
         const statistics = x.statistics
         const groups = x.groups
 
         return (
-          <Collapsible
-            key={x.identifier}
-            open={false}
-            header={x.identifier}
-            isPrimary
-          >
-            <Row indented hasBorder>
-              <RowName isHeader={false} isBold>
-                Method
-              </RowName>
-              <div>{x.method}</div>
-            </Row>
-            {statistics && <Statistics data={statistics} />}
-            {groups && <Groups data={groups} />}
-          </Collapsible>
+          <div style={{ marginBottom: "0.5rem" }}>
+            <Collapsible
+              key={x.identifier}
+              open={false}
+              header={x.identifier}
+              isPrimary
+            >
+              <Row indented hasBorder>
+                <RowName isHeader={false} isBold>
+                  Method
+                </RowName>
+                <div>{x.method}</div>
+              </Row>
+              {statistics && <Statistics data={statistics} />}
+              {groups && <Groups data={groups} />}
+            </Collapsible>
+          </div>
         )
       })}
     </div>

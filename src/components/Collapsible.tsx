@@ -20,10 +20,11 @@ export const Collapsible = (props: CollapsibleProps) => {
   }
 
   return (
-    <>
+    <div>
       <div
         style={{
           backgroundColor: isPrimary ? "var(--gray)" : "white",
+          borderRadius: "100px",
           fontStyle: isOpen ? "italic" : "normal",
         }}
       >
@@ -50,6 +51,6 @@ export const Collapsible = (props: CollapsibleProps) => {
         </Row>
       </div>
       {isOpen && <div>{children}</div>}
-    </>
+    </div>
   )
 }

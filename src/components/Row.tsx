@@ -12,7 +12,7 @@ export const Row = (props: RowProps) => {
   return (
     <div
       style={{
-        minHeight: "2.5rem",
+        minHeight: "2.8rem",
         display: "flex",
         alignItems: "center",
         marginLeft: indented ? "1rem" : "",

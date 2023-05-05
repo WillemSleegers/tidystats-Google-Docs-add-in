@@ -1,5 +1,6 @@
 import { ChangeEvent, useState, useEffect } from "react"
 import { Button, Alert } from "@mui/material"
+import { FileUpload } from "@mui/icons-material"
 import { Tidystats } from "../classes/Tidystats"
 
 type UploadProps = {
@@ -12,8 +13,12 @@ const Upload = (props: UploadProps) => {
   const [file, setFile] = useState<File>()
 
   const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
+    console.log("handling file change")
+    console.log(e.target.files)
     if (e.target.files) {
-      setFile(e.target.files[0])
+      if (e.target.files.length == 1) {
+        setFile(e.target.files[0])
+      }
     }
   }
 
@@ -39,13 +44,20 @@ const Upload = (props: UploadProps) => {
   const [showErrorMessage, setShowErrorMessage] = useState(false)
 
   return (
-    <>
+    <div style={{ margin: "1rem" }}>
       <Button
         id="fileUpload"
         variant="contained"
         component="label"
         disableElevation
-        style={{ margin: "1rem", textTransform: "none" }}
+        fullWidth
+        startIcon={file ? null : <FileUpload />}
+        style={{
+          textTransform: "none",
+          borderRadius: "100px",
+          fontSize: "1rem",
+          padding: "0.5rem",
+        }}
       >
         {file ? file.name : "Upload statistics"}
         <input
@@ -57,9 +69,11 @@ const Upload = (props: UploadProps) => {
       </Button>
 
       {showErrorMessage && (
-        <Alert severity="error">File must be a tidystats JSON file.</Alert>
+        <Alert style={{ marginTop: "1rem" }} severity="error">
+          File must be a tidystats JSON file.
+        </Alert>
       )}
-    </>
+    </div>
   )
 }
 

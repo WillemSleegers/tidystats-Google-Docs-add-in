@@ -5,6 +5,7 @@
   font-weight: 400;
 
   color: black;
+  width: 300px;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -17,5 +18,4 @@
 
 body {
   margin: 0 auto;
-  width: 300px;
 }

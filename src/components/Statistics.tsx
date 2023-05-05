@@ -113,7 +113,10 @@ export const Statistics = (props: StatisticsProps) => {
                 </RowName>
                 <RowValue>{x.value}</RowValue>
                 {clickedSettings && (
-                  <Checkbox onClick={() => toggleCheck(x.name)} />
+                  <Checkbox
+                    checked={x.checked}
+                    onClick={() => toggleCheck(x.name)}
+                  />
                 )}
 
                 <IconButton>
