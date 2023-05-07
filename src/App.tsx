@@ -2,6 +2,7 @@ import { useState } from "react"
 import {
   createTheme,
   ThemeProvider,
+  Button,
   BottomNavigation,
   BottomNavigationAction,
 } from "@mui/material"
@@ -12,6 +13,16 @@ import { Tidystats } from "./classes/Tidystats"
 import { updateStatistics } from "./functions/gas"
 
 const theme = createTheme({
+  typography: {
+    button: {
+      textTransform: "none",
+      fontSize: "1rem",
+      padding: "0.5rem",
+    },
+  },
+  shape: {
+    borderRadius: 100,
+  },
   components: {
     MuiButtonBase: {
       defaultProps: {
@@ -34,18 +45,36 @@ function App() {
             {tidystats && <Analyses data={tidystats.analyses} />}
           </>
         )}
-        {value == 1 && tidystats && (
-          <>
+        {value == 1 && (
+          <div style={{ margin: "1rem" }}>
             <h2>Actions</h2>
             <div>
-              <button
-                aria-roledescription="Update statistics"
-                onClick={updateStatistics}
+              <Button
+                variant="contained"
+                disabled={tidystats ? false : true}
+                disableElevation
+                fullWidth
+                onClick={() =>
+                  updateStatistics(JSON.stringify(tidystats!.analyses))
+                }
               >
                 Update statistics
-              </button>
+              </Button>
             </div>
-          </>
+          </div>
+        )}
+        {value == 2 && (
+          <div style={{ margin: "1rem" }}>
+            <h2>Support</h2>
+            <p>
+              For more information on how to use tidystats, including examples
+              and FAQs, see the tidystats{" "}
+              <a href="https://www.tidystats.io" target="_blank">
+                website
+              </a>
+              .
+            </p>
+          </div>
         )}
       </div>
       <BottomNavigation

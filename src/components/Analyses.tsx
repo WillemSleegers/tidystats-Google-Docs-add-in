@@ -19,13 +19,8 @@ export const Analyses = (props: AnalysesProps) => {
         const groups = x.groups
 
         return (
-          <div style={{ marginBottom: "0.5rem" }}>
-            <Collapsible
-              key={x.identifier}
-              open={false}
-              header={x.identifier}
-              isPrimary
-            >
+          <div key={x.identifier} style={{ marginBottom: "0.5rem" }}>
+            <Collapsible open={false} header={x.identifier} isPrimary>
               <Row indented hasBorder>
                 <RowName isHeader={false} isBold>
                   Method

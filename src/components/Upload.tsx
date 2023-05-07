@@ -13,10 +13,9 @@ const Upload = (props: UploadProps) => {
   const [file, setFile] = useState<File>()
 
   const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
-    console.log("handling file change")
-    console.log(e.target.files)
     if (e.target.files) {
       if (e.target.files.length == 1) {
+        setTidystats(null) // Reset state in case a file was already uploaded
         setFile(e.target.files[0])
       }
     }
@@ -29,6 +28,7 @@ const Upload = (props: UploadProps) => {
         reader.onload = () => {
           const data = JSON.parse(reader.result as string)
           const tidystats = new Tidystats(data)
+          console.log("Setting tidystats")
           setTidystats(tidystats)
         }
         reader.readAsText(file)
@@ -52,12 +52,6 @@ const Upload = (props: UploadProps) => {
         disableElevation
         fullWidth
         startIcon={file ? null : <FileUpload />}
-        style={{
-          textTransform: "none",
-          borderRadius: "100px",
-          fontSize: "1rem",
-          padding: "0.5rem",
-        }}
       >
         {file ? file.name : "Upload statistics"}
         <input

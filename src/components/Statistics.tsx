@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import { Row, RowName, RowValue } from "./Row"
 import { Statistic, RangedStatistic } from "../classes/Statistic"
 import { formatValue } from "../functions/formatValue"
-import { insertStatistics } from "../functions/gas"
+import { insertStatistic, insertStatistics } from "../functions/gas"
 
 import { Checkbox } from "@mui/material"
 import { Settings, Add } from "@mui/icons-material"
@@ -93,7 +93,7 @@ export const Statistics = (props: StatisticsProps) => {
         <IconButton onClick={() => setClickedSettings((prev) => !prev)}>
           <Settings />
         </IconButton>
-        <IconButton onClick={() => insertStatistics()}>
+        <IconButton onClick={() => insertStatistics(statistics!)}>
           <Add />
         </IconButton>
       </Row>
@@ -119,7 +119,9 @@ export const Statistics = (props: StatisticsProps) => {
                   />
                 )}
 
-                <IconButton>
+                <IconButton
+                  onClick={() => insertStatistic(x.value, x.identifier)}
+                >
                   <Add />
                 </IconButton>
               </Row>
