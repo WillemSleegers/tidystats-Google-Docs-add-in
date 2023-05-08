@@ -2,8 +2,8 @@ export const Header = () => {
   return (
     <div
       style={{
+        height: "48px",
         background: "var(--gray)",
-        padding: "0.5rem",
         display: "flex",
         gap: "0.5rem",
         justifyContent: "center",

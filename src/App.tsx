@@ -90,9 +90,8 @@ function App() {
         )}
         {value == 2 && (
           <div style={{ margin: "1rem" }}>
-            <h3>Support</h3>
             <h4>How to Use</h4>
-            <ol style={{ paddingInlineStart: "1rem" }}>
+            <ol style={{ marginTop: "0", paddingInlineStart: "1rem" }}>
               <li>
                 Use the tidystats{" "}
                 <Link href="https://www.tidystats.io/r-package/">
@@ -100,10 +99,10 @@ function App() {
                 </Link>{" "}
                 to save statistics into a JSON file.
               </li>
-              <li>Upload the JSON file in the Analyses tab.</li>
+              <li>Upload the JSON file in the Statistics tab.</li>
               <li>Click on statistics to insert them into the document.</li>
             </ol>
-            <h4>More information</h4>
+
             <p>
               For more information on how to use tidystats, including examples
               and FAQs, see the tidystats{" "}
