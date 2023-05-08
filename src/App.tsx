@@ -1,12 +1,13 @@
-import { useState } from "react"
+import { useState, SyntheticEvent } from "react"
 import {
   createTheme,
   ThemeProvider,
   Button,
-  BottomNavigation,
-  BottomNavigationAction,
+  Link,
+  Tabs,
+  Tab,
 } from "@mui/material"
-import { BarChart, MiscellaneousServices, Help } from "@mui/icons-material"
+import { Header } from "./components/Header"
 import { Upload } from "./components/Upload"
 import { Analyses } from "./components/Analyses"
 import { Tidystats } from "./classes/Tidystats"
@@ -36,8 +37,31 @@ function App() {
   const [tidystats, setTidystats] = useState<Tidystats>()
   const [value, setValue] = useState(0)
 
+  function a11yProps(index: number) {
+    return {
+      id: `simple-tab-${index}`,
+      "aria-controls": `simple-tabpanel-${index}`,
+    }
+  }
+
+  const handleChange = (_event: SyntheticEvent, newValue: number) => {
+    setValue(newValue)
+  }
+
   return (
     <ThemeProvider theme={theme}>
+      <Header />
+      <Tabs
+        value={value}
+        onChange={handleChange}
+        aria-label="basic tabs example"
+        variant="fullWidth"
+      >
+        <Tab label="Statistics" {...a11yProps(0)} />
+        <Tab label="Actions" {...a11yProps(1)} />
+        <Tab label="Support" {...a11yProps(2)} />
+      </Tabs>
+
       <div style={{ marginBottom: "56px" }}>
         {value == 0 && (
           <>
@@ -47,7 +71,8 @@ function App() {
         )}
         {value == 1 && (
           <div style={{ margin: "1rem" }}>
-            <h2>Actions</h2>
+            <h3>Update statistics</h3>
+            <p>Update all statistics after uploading a new file.</p>
             <div>
               <Button
                 variant="contained"
@@ -65,37 +90,31 @@ function App() {
         )}
         {value == 2 && (
           <div style={{ margin: "1rem" }}>
-            <h2>Support</h2>
+            <h3>Support</h3>
+            <h4>How to Use</h4>
+            <ol style={{ paddingInlineStart: "1rem" }}>
+              <li>
+                Use the tidystats{" "}
+                <Link href="https://www.tidystats.io/r-package/">
+                  R package
+                </Link>{" "}
+                to save statistics into a JSON file.
+              </li>
+              <li>Upload the JSON file in the Analyses tab.</li>
+              <li>Click on statistics to insert them into the document.</li>
+            </ol>
+            <h4>More information</h4>
             <p>
               For more information on how to use tidystats, including examples
               and FAQs, see the tidystats{" "}
-              <a href="https://www.tidystats.io" target="_blank">
+              <Link href="https://www.tidystats.io" target="_blank">
                 website
-              </a>
+              </Link>
               .
             </p>
           </div>
         )}
       </div>
-      <BottomNavigation
-        showLabels
-        value={value}
-        onChange={(_event, newValue) => {
-          setValue(newValue)
-        }}
-        sx={{
-          position: "fixed",
-          bottom: 0,
-          width: "300px",
-        }}
-      >
-        <BottomNavigationAction label="Analyses" icon={<BarChart />} />
-        <BottomNavigationAction
-          label="Actions"
-          icon={<MiscellaneousServices />}
-        />
-        <BottomNavigationAction label="Support" icon={<Help />} />
-      </BottomNavigation>
     </ThemeProvider>
   )
 }

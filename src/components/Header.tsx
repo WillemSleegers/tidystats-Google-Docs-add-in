@@ -3,6 +3,7 @@ export const Header = () => {
     <div
       style={{
         background: "var(--gray)",
+        padding: "0.5rem",
         display: "flex",
         gap: "0.5rem",
         justifyContent: "center",
@@ -10,14 +11,14 @@ export const Header = () => {
       }}
     >
       <Logo />
-      <h1 style={{ fontSize: "1.25rem" }}>tidystats</h1>
+      <span style={{ fontSize: "1.25rem", fontWeight: "bold" }}>tidystats</span>
     </div>
   )
 }
 
 const Logo = () => {
   return (
-    <svg width={42} height={42} viewBox="0 0 224 224">
+    <svg width={32} height={32} viewBox="0 0 224 224">
       <g>
         <path
           d="M219 119.003 L219 149.003 C219 154.003 219 154.003 214 157.003 
