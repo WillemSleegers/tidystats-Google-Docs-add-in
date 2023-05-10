@@ -24,7 +24,11 @@ export const Groups = (props: GroupsProps) => {
             key={x.identifier}
             open={false}
             header={x.name}
-            onInsertClick={canInsertTable ? () => insertTable() : undefined}
+            onInsertClick={
+              canInsertTable
+                ? () => insertTable(x.name, JSON.stringify(groups))
+                : undefined
+            }
           >
             {statistics && <Statistics data={x.statistics!} />}
             {groups && <Groups data={groups} />}

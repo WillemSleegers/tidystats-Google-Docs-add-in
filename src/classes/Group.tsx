@@ -1,6 +1,6 @@
 import { Statistic, RangedStatistic } from "./Statistic"
 
-class Group {
+export class Group {
   identifier: string
   name: string
   statistics?: Statistic[]
@@ -43,5 +43,3 @@ class Group {
     }
   }
 }
-
-export { Group }

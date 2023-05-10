@@ -28,24 +28,16 @@ export const Collapsible = (props: CollapsibleProps) => {
           fontStyle: isOpen ? "italic" : "normal",
         }}
       >
-        <Row>
-          {!isOpen && (
-            <IconButton onClick={toggleOpen}>
-              <ChevronRight />
-            </IconButton>
-          )}
-
-          {isOpen && (
-            <IconButton onClick={toggleOpen}>
-              <ExpandMore />
-            </IconButton>
-          )}
+        <Row hasBorder={isPrimary ? false : true}>
+          <IconButton onClick={toggleOpen}>
+            {isOpen ? <ExpandMore /> : <ChevronRight />}
+          </IconButton>
 
           <RowName isHeader={true}>{header}</RowName>
 
           {onInsertClick && (
             <IconButton>
-              <TableChart />
+              <TableChart onClick={() => onInsertClick()} />
             </IconButton>
           )}
         </Row>

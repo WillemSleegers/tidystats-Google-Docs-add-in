@@ -21,4 +21,10 @@ export const updateStatistics = (x: string) => {
   google.script.run.updateStatistics(x)
 }
 
-export const insertTable = () => {}
+export const insertTable = (name: string, x: string) => {
+  google.script.run.updateStatistics(name, x)
+}
+
+export const unlinkLinks = () => {
+  google.script.run.unlinkLinks()
+}

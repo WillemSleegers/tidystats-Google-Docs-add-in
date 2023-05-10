@@ -21,7 +21,7 @@ export const Analyses = (props: AnalysesProps) => {
         return (
           <div key={x.identifier} style={{ marginBottom: "0.5rem" }}>
             <Collapsible open={false} header={x.identifier} isPrimary>
-              <Row indented hasBorder>
+              <Row indented>
                 <RowName isHeader={false} isBold>
                   Method
                 </RowName>

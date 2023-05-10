@@ -16,7 +16,7 @@ export const Row = (props: RowProps) => {
         display: "flex",
         alignItems: "center",
         marginLeft: indented ? "1rem" : "",
-        borderBottom: hasBorder ? "1px solid var(--gray)" : "",
+        borderTop: hasBorder ? "1px solid var(--gray)" : "none",
       }}
     >
       {children}
