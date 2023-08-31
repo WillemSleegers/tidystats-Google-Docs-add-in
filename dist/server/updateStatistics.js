@@ -1,4 +1,8 @@
 const updateStatistics = (tidystatsAnalyses, replaceAll = false) => {
+  const tidyID = "https://www.tidystats.io/google-docs-statistic/#id="
+  const doc = DocumentApp.getActiveDocument()
+  const lock = LockService.getDocumentLock()
+
   lock.tryLock(0)
   if (!lock.hasLock()) {
     DocumentApp.getUi().alert(
@@ -11,7 +15,7 @@ const updateStatistics = (tidystatsAnalyses, replaceAll = false) => {
   if (!replaceAll) {
     tidystatsAnalyses = JSON.parse(tidystatsAnalyses)
   }
-  const allLinks = getAllLinks()
+  const allLinks = getAllLinks(tidyID)
   const allIDs = []
   for (const link of allLinks) {
     const rangeBuilder = doc.newRange()
@@ -90,11 +94,6 @@ const updateStatistics = (tidystatsAnalyses, replaceAll = false) => {
   // furthermore, the delay helps locking the document for sufficient time
 }
 
-const tidyID = "https://www.tidystats.io/google-docs-statistic/#id="
-const tidyIDlen = tidyID.length
-const doc = DocumentApp.getActiveDocument()
-const lock = LockService.getDocumentLock()
-
 /** Below, the getAllLinks function and the related iterateSection function were
  * first modified for Zotero from https://stackoverflow.com/a/40730088/3199106.
  * Then that code from Zotero was modified for the purpose here.
@@ -137,7 +136,9 @@ const lock = LockService.getDocumentLock()
  * @returns {Array} the aforementioned flat array of links.
  */
 
-const getAllLinks = () => {
+const getAllLinks = (tidyID) => {
+  console.log("Getting all links")
+
   const links = []
   let footnoteIndex = 0
   iterateSections(
@@ -209,7 +210,7 @@ const getAllLinks = () => {
                 startOffset: startOffset,
                 endOffsetInclusive: endOffsetInclusive,
                 url: url,
-                id: url.substring(tidyIDlen),
+                id: url.substring(tidyID.length),
                 // footnoteIndex: footnote ? footnoteIndex : 0
               }
               links.push(lastLink)

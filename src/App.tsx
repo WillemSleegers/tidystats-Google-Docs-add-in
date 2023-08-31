@@ -45,7 +45,6 @@ export const App = () => {
   return (
     <ThemeProvider theme={theme}>
       <Header />
-
       <Tabs
         value={value}
         onChange={handleChange}
@@ -56,14 +55,13 @@ export const App = () => {
         <Tab label="Actions" {...tabProps(1)} />
         <Tab label="Support" {...tabProps(2)} />
       </Tabs>
-
       {value == 0 && (
         <>
           <Upload setTidystats={setTidystats} />
           {tidystats && <Analyses data={tidystats.analyses} />}
         </>
       )}
-      {value == 1 && <Actions />}
+      {value == 1 && <Actions tidystats={tidystats} />}
       {value == 2 && <Support />}
     </ThemeProvider>
   )

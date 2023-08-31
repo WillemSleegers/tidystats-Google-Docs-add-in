@@ -9,6 +9,8 @@ type ActionsProps = {
 export const Actions = (props: ActionsProps) => {
   const { tidystats } = props
 
+  console.log(tidystats)
+
   return (
     <div style={{ margin: "1rem" }}>
       <h3>Update statistics</h3>

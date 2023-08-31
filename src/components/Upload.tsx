@@ -15,6 +15,7 @@ const Upload = (props: UploadProps) => {
   const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
     if (e.target.files) {
       if (e.target.files.length == 1) {
+        console.log("Resetting")
         setTidystats(null) // Reset state in case a file was already uploaded
         setFile(e.target.files[0])
       }
