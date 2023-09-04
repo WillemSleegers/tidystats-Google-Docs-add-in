@@ -39,8 +39,8 @@ const appendTextAsUrl = (x, id, suffix = "") => {
         x.length - 1,
         "https://www.tidystats.io/google-docs-statistic/#id=" + id
       )
-      text.setUnderline(false)
-      text.setForegroundColor(0, x.length - 1, "#000000")
+      //text.setUnderline(false)
+      //text.setForegroundColor(0, x.length - 1, "#000000")
       doc.setCursor(doc.newPosition(text, x.length + suffix.length))
     }
   }

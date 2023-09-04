@@ -17,8 +17,8 @@ export const insertStatistics = (x: StatisticProps[]) => {
   google.script.run.insertStatistics(x)
 }
 
-export const updateStatistics = (x: string) => {
-  google.script.run.updateStatistics(x)
+export const updateStatistics = (x: string, callback: any) => {
+  google.script.run.withSuccessHandler(callback).updateStatistics(x)
 }
 
 export const insertTable = (name: string, x: string) => {

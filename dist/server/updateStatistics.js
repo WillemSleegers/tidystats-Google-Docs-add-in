@@ -1,97 +1,84 @@
-const updateStatistics = (tidystatsAnalyses, replaceAll = false) => {
-  const tidyID = "https://www.tidystats.io/google-docs-statistic/#id="
-  const doc = DocumentApp.getActiveDocument()
-  const lock = LockService.getDocumentLock()
+const updateStatistics = (statistics) => {
+  const tidystatsURL = "https://www.tidystats.io/google-docs-statistic/#id="
 
-  lock.tryLock(0)
-  if (!lock.hasLock()) {
-    DocumentApp.getUi().alert(
-      "The server seems busy at the moment. Perhaps other users are updating the statistics. Please try again later."
-    )
-    return
-  }
-  // console.log("Updating statistics")
-  // DocumentApp.getUi().alert('Updating statistics.');
-  if (!replaceAll) {
-    tidystatsAnalyses = JSON.parse(tidystatsAnalyses)
-  }
-  const allLinks = getAllLinks(tidyID)
-  const allIDs = []
-  for (const link of allLinks) {
-    const rangeBuilder = doc.newRange()
-    rangeBuilder.addElement(
-      link.text,
-      link.startOffset,
-      link.endOffsetInclusive
-    )
-    doc.addNamedRange(link.id, rangeBuilder.build())
-    if (allIDs.indexOf(link.id) === -1) {
-      allIDs.push(link.id)
-    }
-  }
+  const document = DocumentApp.getActiveDocument()
+  const text = document.getBody().asText()
+
+  const links = getLinks(document, tidystatsURL)
+
+  statistics = JSON.parse(statistics)
+
   let statistic, value
-  for (const id of allIDs) {
-    if (replaceAll) {
-      statistic = true
-    } else {
-      statistic = findStatistic(id, tidystatsAnalyses)
-    }
+  let statisticsCount = 0
+  let indexChange = 0
+
+  for (const link of links) {
+    statistic = findStatistic(link.id, statistics)
+
     // Replace the statistic reported in the document with the new one, if there is one
     if (statistic) {
-      if (replaceAll) {
-        value = tidystatsAnalyses
-      } else {
-        // Check whether a lower or upper bound was reported
-        const components = id.split("$")
-        let bound
-        if (components[components.length - 1].match(/lower|upper/)) {
-          bound = components.pop()
-        }
-        value = formatValue(statistic, 2, bound)
+      // Check whether a lower or upper bound was reported
+      const components = link.id.split("$")
+      let bound
+      if (components[components.length - 1].match(/lower|upper/)) {
+        bound = components.pop()
       }
+      value = formatValue(statistic, 2, bound)
 
-      // Loop over the content controls items and update the statistics
-      for (const myNamedRange of doc.getNamedRanges(id)) {
-        // remove named range, update text, reset URL
-        const myRange = myNamedRange.getRange()
-        myNamedRange.remove()
-        // update range elements
-        for (const rangeElement of myRange.getRangeElements()) {
-          if (rangeElement.isPartial()) {
-            const tElement = rangeElement.getElement().asText()
-            const startIndex = rangeElement.getStartOffset()
-            const endIndex = rangeElement.getEndOffsetInclusive()
-            Logger.log(value)
-            Logger.log(startIndex)
-            Logger.log(endIndex)
-            tElement.insertText(endIndex + 1, value)
-            tElement.deleteText(startIndex, endIndex)
-          } else {
-            const eElement = rangeElement.getElement()
-            // if not specified as "any", throws type errors for some reason
-            if (eElement.editAsText) {
-              eElement.clear().asText().setText(value)
-            } else {
-              const parent = eElement.getParent()
-              parent[parent.insertText ? "insertText" : "insertParagraph"](
-                parent.getChildIndex(eElement),
-                value
-              )
-              eElement.removeFromParent()
-            }
-          }
-        }
+      // Only update if the new value is different from the old value
+      if (link.value != value) {
+        statisticsCount++
+
+        // Insert before delete to preserve the URL
+        text.insertText(link.end + indexChange, value)
+        text.deleteText(link.start + indexChange, link.end - 1 + indexChange)
+
+        // update indexChange to reflect changes in indices due to differing value lengths
+        indexChange = indexChange + value.length - link.value.length
       }
     }
   }
-  if (replaceAll) {
-    closeDialog()
-  }
-  Utilities.sleep(1000)
-  // the small delay is added because sometimes (at least on chrome) the update
-  // appears in the document a bit later then the server promise resolution
-  // (hence the button would be seen enabled even before all updates are visible)
-  // furthermore, the delay helps locking the document for sufficient time
+
+  DocumentApp.getUi().alert("Updated " + statisticsCount + " statistics")
+}
+
+const getLinks = (document, tidystatsURL) => {
+  const body = document.getBody()
+  const text = body.asText()
+  const indices = text.getTextAttributeIndices()
+
+  let links = []
+  let lastLink
+
+  indices.forEach((index, i, indices) => {
+    const url = text.getLinkUrl(index)
+
+    if (url && url.indexOf(tidystatsURL) === 0) {
+      let start = index
+      let end =
+        i < indices.length - 1 ? indices[i + 1] : text.getText().length - 1
+
+      // check if this and the last found link are continuous
+      if (lastLink && lastLink.url == url && lastLink.end == start) {
+        lastLink.end = end
+        lastLink.value = text.getText().substring(lastLink.start, end)
+        return
+      }
+
+      lastLink = {
+        section: "body",
+        url: url,
+        id: url.substring(tidystatsURL.length),
+        value: text.getText().substring(start, end),
+        start: start,
+        end: end,
+      }
+
+      links.push(lastLink)
+    }
+  })
+
+  return links
 }
 
 /** Below, the getAllLinks function and the related iterateSection function were
@@ -137,8 +124,6 @@ const updateStatistics = (tidystatsAnalyses, replaceAll = false) => {
  */
 
 const getAllLinks = (tidyID) => {
-  console.log("Getting all links")
-
   const links = []
   let footnoteIndex = 0
   iterateSections(
@@ -211,6 +196,9 @@ const getAllLinks = (tidyID) => {
                 endOffsetInclusive: endOffsetInclusive,
                 url: url,
                 id: url.substring(tidyID.length),
+                value: el
+                  .getText()
+                  .substring(startOffset, endOffsetInclusive + 1),
                 // footnoteIndex: footnote ? footnoteIndex : 0
               }
               links.push(lastLink)
@@ -378,4 +366,95 @@ const formatValue = (x, decimals, bound) => {
   }
 
   return value
+}
+
+const updateStatisticsOld = (statistics, replaceAll = false) => {
+  const tidystatsURL = "https://www.tidystats.io/google-docs-statistic/#id="
+
+  const doc = DocumentApp.getActiveDocument()
+  const lock = LockService.getDocumentLock()
+
+  lock.tryLock(0)
+  if (!lock.hasLock()) {
+    DocumentApp.getUi().alert(
+      "The server seems busy at the moment. Perhaps the statistics are being updated. Please try again later."
+    )
+    return
+  }
+
+  const links = getAllLinks(tidystatsURL)
+  const ids = []
+  for (const link of links) {
+    const rangeBuilder = doc.newRange()
+    rangeBuilder.addElement(
+      link.text,
+      link.startOffset,
+      link.endOffsetInclusive
+    )
+    doc.addNamedRange(link.id, rangeBuilder.build())
+    if (ids.indexOf(link.id) === -1) {
+      ids.push({ id: link.id, value: link.value })
+    }
+  }
+
+  statistics = JSON.parse(statistics)
+  let statistic, value
+  let statisticsCount = 0
+
+  for (const id of ids) {
+    statistic = findStatistic(id.id, statistics)
+
+    // Replace the statistic reported in the document with the new one, if there is one
+    if (statistic) {
+      // Check whether a lower or upper bound was reported
+      const components = id.id.split("$")
+      let bound
+      if (components[components.length - 1].match(/lower|upper/)) {
+        bound = components.pop()
+      }
+      value = formatValue(statistic, 2, bound)
+
+      if (id.value != value) {
+        statisticsCount++
+
+        // Loop over the content controls items and update the statistics
+        for (const myNamedRange of doc.getNamedRanges(id.id)) {
+          // remove named range, update text, reset URL
+          const myRange = myNamedRange.getRange()
+          myNamedRange.remove()
+          // update range elements
+          for (const rangeElement of myRange.getRangeElements()) {
+            if (rangeElement.isPartial()) {
+              Logger.log("Partial")
+
+              const tElement = rangeElement.getElement().asText()
+              const startIndex = rangeElement.getStartOffset()
+              const endIndex = rangeElement.getEndOffsetInclusive()
+
+              Logger.log(tElement.getText())
+              Logger.log(
+                "startIndex: " + startIndex + "; endIndex: " + endIndex
+              )
+
+              tElement.insertText(endIndex + 1, value)
+              tElement.deleteText(startIndex, endIndex)
+            } else {
+              const eElement = rangeElement.getElement()
+
+              if (eElement.editAsText) {
+                eElement.clear().asText().setText(value)
+              } else {
+                const parent = eElement.getParent()
+                parent[parent.insertText ? "insertText" : "insertParagraph"](
+                  parent.getChildIndex(eElement),
+                  value
+                )
+                eElement.removeFromParent()
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }
